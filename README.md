@@ -7,19 +7,19 @@ composer require milyoona/model-consumer
 ```
 
 ```php
+// Add Config Files to app.php
+$app->configure('amqp');
+$app->configure('consumer');
+$app->configure('database');
+```
+
+```php
 // Register Service Provider to app.php
 $app->register(Milyoona\ModelConsumer\ModelConsumerServiceProvider::class);
 ```
 
 ```bash
 php artisan vendor:publish --tag=consumer
-```
-
-```php
-// Add Config Files to app.php
-$app->configure('amqp');
-$app->configure('consumer');
-$app->configure('database');
 ```
 
 ```php

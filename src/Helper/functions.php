@@ -27,21 +27,29 @@ if ( ! function_exists('consumerCrud') )
 {
     function consumerCrud($routingKey, $method, $data)
     {
-        $model = '\\Milyoona\\ModelConsumer\\Models\\' . config('consumer.models')[$routingKey];
+        try {
+            $model = '\\Milyoona\\ModelConsumer\\Models\\' . config('consumer.models')[$routingKey];
 
-        switch($method) {
-            case 'store':
-                $model::create($data);
-                break;
-            case 'update':
-                $model::where('id', $data['id'])->updade($data);
-                break;
-            case 'delete':
-                $model::where('id', $data['id'])->delete();
-                break;
-            case 'forceDelete':
-                $model::where('id', $data['id'])->forceDelete();
-                break;
+            switch($method) {
+                case 'store':
+                    $model::create($data);
+                    break;
+                case 'update':
+                    $model::where('id', $data['id'])->updade($data);
+                    break;
+                case 'delete':
+                    $model::where('id', $data['id'])->delete();
+                    break;
+                case 'forceDelete':
+                    $model::where('id', $data['id'])->forceDelete();
+                    break;
+            }
+        } catch (Exception $exception) {
+            \Milyoona\ModelConsumer\Models\ConsumerLog::create([
+                'queue' => config('consumer.queue_name'),
+                'routing_key' => $routingKey,
+                'exception' => $exception
+            ]);
         }
     }
 }
