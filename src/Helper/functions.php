@@ -48,6 +48,7 @@ if ( ! function_exists('consumerCrud') )
             \Milyoona\ModelConsumer\Models\ConsumerLog::create([
                 'queue' => config('consumer.queue_name'),
                 'routing_key' => $routingKey,
+                'data' => $data,
                 'exception' => $exception
             ]);
         }

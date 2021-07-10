@@ -17,6 +17,7 @@ class CreateConsumerLogsTable extends Migration
             $table->id();
             $table->string('queue');
             $table->string('routing_key');
+            $table->json('data');
             $table->longText('exception');
             $table->timestamps();
         });
