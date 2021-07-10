@@ -1,6 +1,6 @@
 <?php
 
-namespace Milyoona\ModelConsume\Models;
+namespace Milyoona\ModelConsumer\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;

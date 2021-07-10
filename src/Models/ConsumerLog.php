@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Milyoona\ModelConsumer\Models;
-
 
 use Illuminate\Database\Eloquent\Model;
 
