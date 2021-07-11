@@ -14,7 +14,7 @@ class CreateSharingsTable extends Migration
     public function up()
     {
         Schema::create('sharings', function (Blueprint $table) {
-            $table->increments('id');
+            (isBase('sharings')) ? $table->id() : $table->unsignedBigInteger('id')->index();
             $table->string("terminal_website")->index();
             $table->string("iban_iban")->index();
             $table->string("percent");
