@@ -2,7 +2,7 @@
 
 return [
     'all_migrations' => [
-        'consumer_logs', 'users', 'terminals', 'transactions', 'products'
+        'consumer_logs', 'users', 'terminals', 'transactions', 'products', 'ibans', 'sharings'
     ],
     
     /*
