@@ -55,6 +55,17 @@ class ModelConsumerServiceProvider extends ServiceProvider
         // For migrate new migrations
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations/news');
 
+        // For load config files
+        if (file_exists($this->app->basePath() . '/config/amqp.php')) {
+            $this->mergeConfigFrom($this->app->basePath() . '/config/amqp.php', 'amqp');
+        }
+        if (file_exists($this->app->basePath() . '/config/consumer.php')) {
+            $this->mergeConfigFrom($this->app->basePath() . '/config/consumer.php', 'consumer');
+        }
+        if (file_exists($this->app->basePath() . '/config/database.php')) {
+            $this->mergeConfigFrom($this->app->basePath() . '/config/database.php', 'database');
+        }
+
         // Base migrations
         if (!empty(getMigrations())) {
             foreach( array_diff(scandir(__DIR__.'/database/migrations/base'), array('.', '..')) as $migration) {

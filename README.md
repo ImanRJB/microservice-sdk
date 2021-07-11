@@ -6,21 +6,19 @@
 composer require milyoona/model-consumer
 ```
 
-```php
-// Add Config Files to app.php
-$app->configure('amqp');
-$app->configure('consumer');
-$app->configure('database');
-```
+###### Register the Service Provider in bootstrap/app.php for <code>Lumen</code>:
 
 ```php
-// Register Service Provider to app.php
 $app->register(Milyoona\ModelConsumer\ModelConsumerServiceProvider::class);
 ```
+  
+###### Publish configuration files:
 
 ```bash
 php artisan vendor:publish --tag=consumer
 ```
+  
+###### Set prefix in route for <code>Lumen</code>:
 
 ```php
 // Change the route in app.php
@@ -39,14 +37,10 @@ Set configs in <code>config/consumer.php</code> and Run this command
 ```bash
 php artisan milyoona:install
 
-// If you want to generate key in .env
-php artisan key:generate
-
-// Config your database information in .env then run this command
 php artisan migrate
 ```
 
-#### How to <code>publish</code> on queue
+#### How to <code>publish</code> a message
 
 ```php
 // In Repository
@@ -55,8 +49,17 @@ Amqp::publish( 'users', json_encode( ['method' => 'store', 'data' => $user->setA
 return $user->setAppends( ['full_name'] );
 ```
 
-#### How to <code>consume</code> from queue
+#### How to <code>consume</code> messages
 
 ```bash
 php artisan milyoona:consume
+```
+
+#### Use these directives for <code>amqp configs</code> in .env file
+
+```dotenv
+AMQP_HOST=
+AMQP_PORT=
+AMQP_USER=
+AMQP_PASSWORD=
 ```

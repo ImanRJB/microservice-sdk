@@ -59,11 +59,15 @@ class MilyoonaInstall extends Command
                     $publishedCount++;
                 }
             }
-        }
-        if ($publishedCount > 0) {
-            $this->info($publishedCount .  ' Migration Successfully Published!');
         } else {
+            $publishedCount = -1;
+        }
+        if ($publishedCount == -1) {
+            $this->error('Your configuration file is not configured!');
+        } elseif ($publishedCount == 0) {
             $this->warn('Already published, Not exists to publish!');
+        } else {
+            $this->info($publishedCount .  ' Migration Successfully Published!');
         }
     }
 }

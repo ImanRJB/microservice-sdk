@@ -16,7 +16,7 @@ return [
 
     // 'routing_key' => 'model'
     'models' => [
-        'consumer_logs' => 'ConsumerLog',
+        'consumer_logs'  => 'ConsumerLog',
         'users'          => 'User',
         'products'       => 'Product',
         'terminals'      => 'Terminal',
