@@ -15,7 +15,7 @@ class CreateIbansTable extends Migration
     public function up()
     {
         Schema::create('ibans', function (Blueprint $table) {
-            (isBase('ibans')) ? $table->id() : $table->unsignedBigInteger('id')->index();
+            (isBase('ibans')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
             $table->unsignedInteger("user_id")->index();
             $table->string('iban')->unique();
             $table->string('label');
@@ -46,7 +46,3 @@ class CreateIbansTable extends Migration
         Schema::dropIfExists('ibans');
     }
 }
-
-
-
-

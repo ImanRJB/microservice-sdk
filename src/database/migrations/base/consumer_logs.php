@@ -14,7 +14,7 @@ class CreateConsumerLogsTable extends Migration
     public function up()
     {
         Schema::create('consumer_logs', function (Blueprint $table) {
-            (isBase('consumer_logs')) ? $table->id() : $table->unsignedBigInteger('id')->index()->uniqe();
+            (isBase('consumer_logs')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
             $table->string('queue');
             $table->string('routing_key');
             $table->json('data');

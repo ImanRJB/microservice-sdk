@@ -14,7 +14,7 @@ class CreateTerminalsTable extends Migration
     public function up()
     {
         Schema::create('terminals', function (Blueprint $table) {
-            (isBase('terminals')) ? $table->id() : $table->unsignedBigInteger('id')->index();
+            (isBase('terminals')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
             $table->unsignedBigInteger('user_id')->index();
             $table->string('iban_iban')->index();
             $table->string('job_category_sub_code')->index()->nullable();

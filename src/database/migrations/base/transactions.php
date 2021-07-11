@@ -14,7 +14,7 @@ class CreateTransactionsTable extends Migration
     public function up()
     {
         Schema::create('transactions', function (Blueprint $table) {
-            (isBase('transactions')) ? $table->id() : $table->unsignedBigInteger('id')->index();
+            (isBase('transactions')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
             $table->string('terminal_website')->index();
             $table->unsignedBigInteger('user_id')->index();
             $table->string('withdraw_payment_id')->index()->nullable();
