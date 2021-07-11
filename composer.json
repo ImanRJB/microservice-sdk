@@ -26,5 +26,12 @@
         "files": [
             "src/Helper/functions.php"
         ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Milyoona\\ModelConsumer\\ModelConsumerServiceProvider"
+            ]
+        }
     }
 }
