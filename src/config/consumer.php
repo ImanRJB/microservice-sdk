@@ -2,7 +2,7 @@
 
 return [
     'all_migrations' => [
-        'consumer_logs', 'users', 'terminals', 'transactions', 'products', 'ibans', 'sharings'
+        'consumer_logs', 'users', 'terminals', 'transactions', 'products', 'ibans', 'sharings', 'job_categories', 'withdraws', 'dashboard_charts'
     ],
     
     /*
@@ -16,12 +16,15 @@ return [
 
     // 'routing_key' => 'model'
     'models' => [
-        'consumer_logs'  => 'ConsumerLog',
-        'users'          => 'User',
-        'products'       => 'Product',
-        'terminals'      => 'Terminal',
-        'transactions'   => 'Transaction',
-	    'ibans'		     => 'Iban',
-	    'sharings'	     => 'Sharing'
+        'consumer_logs' => 'ConsumerLog',
+        'users' => 'User',
+        'products' => 'Product',
+        'terminals' => 'Terminal',
+        'transactions' => 'Transaction',
+	    'ibans' => 'Iban',
+	    'sharings' => 'Sharing',
+	    'job_categories' => 'JobCategory',
+	    'withdraws' => 'Withdraw',
+	    'dashboard_charts' => 'DashboardChart'
     ],
 ];
