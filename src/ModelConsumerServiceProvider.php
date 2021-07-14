@@ -25,7 +25,7 @@ class ModelConsumerServiceProvider extends ServiceProvider
             if ($token) {
                 try {
                     $decoded = JWT::decode($token, config('jwt.secret'), array('HS256'));
-                    if ($decoded->expires_at < Carbon::now()) {
+                    if ($decoded->expires_in < Carbon::now()) {
                         return;
                     }
                     $model = '\\App\\Models\\User';
