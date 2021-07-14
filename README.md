@@ -64,7 +64,7 @@ AMQP_USER=
 AMQP_PASSWORD=
 ```
 
-###### Add below code to Providers/AuthServiceProvider.php in <code>boot</code> method:
+#### Add below code to Providers/AuthServiceProvider.php in <code>boot</code> method:
 
 ```php
 $this->app['auth']->viaRequest('api', function ($request) {
