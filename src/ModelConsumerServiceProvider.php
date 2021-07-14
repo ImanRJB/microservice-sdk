@@ -71,7 +71,7 @@ class ModelConsumerServiceProvider extends ServiceProvider
             __DIR__.'/config/consumer.php' => lumen_config_path('consumer.php'),
             __DIR__.'/config/amqp.php' => lumen_config_path('amqp.php'),
             __DIR__.'/config/database.php' => lumen_config_path('database.php'),
-            __DIR__.'/config/database.php' => lumen_config_path('jwt.php'),
+            __DIR__.'/config/jwt.php' => lumen_config_path('jwt.php'),
         ], 'consumer');
 
         // For migrate new migrations
