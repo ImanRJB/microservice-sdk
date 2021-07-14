@@ -8,6 +8,7 @@ use Anik\Form\FormRequestServiceProvider;
 use Bschmitt\Amqp\LumenServiceProvider;
 use Flipbox\LumenGenerator\LumenGeneratorServiceProvider;
 use Illuminate\Redis\RedisServiceProvider;
+use Milyoona\ModelConsumer\Observers\ModelObserver;
 
 class ModelConsumerServiceProvider extends ServiceProvider
 {
@@ -18,7 +19,10 @@ class ModelConsumerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        foreach (getAppModels() as $model) {
+            $model = '\\App\\Models\\' . $model;
+            $model::observe(ModelObserver::class);
+        }
     }
 
     /**

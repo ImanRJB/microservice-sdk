@@ -1,5 +1,6 @@
 <?php
 
+
 if ( ! function_exists('checkRelation') )
 {
     function checkRelation($table)
@@ -35,13 +36,16 @@ if ( ! function_exists('consumerCrud') )
                     $model::create($data);
                     break;
                 case 'update':
-                    $model::where('id', $data['id'])->updade($data);
+                    $model::find($data['id'])->update($data);
                     break;
                 case 'delete':
-                    $model::where('id', $data['id'])->delete();
+                    $model::find($data['id'])->delete();
                     break;
                 case 'forceDelete':
-                    $model::where('id', $data['id'])->forceDelete();
+                    $model::find($data['id'])->forceDelete();
+                    break;
+                case 'restore':
+                    $model::withTrashed()->find($data['id'])->restore();
                     break;
             }
         } catch (Exception $exception) {
@@ -80,5 +84,43 @@ if ( ! function_exists('isBase') )
             return in_array($table . ':', $migrations);
         }
         return false;
+    }
+}
+
+if (!function_exists('app_path')) {
+    /**
+     * Get the path to the application folder.
+     *
+     * @param  string $path
+     * @return string
+     */
+    function app_path($path = '')
+    {
+        return app('path') . ($path ? DIRECTORY_SEPARATOR . $path : $path);
+    }
+}
+
+if (!function_exists('getAppModels')) {
+    /**
+     * Get the path to the application folder.
+     *
+     * @param  string $path
+     * @return string
+     */
+    function getAppModels()
+    {
+        $path = app_path() . "/Models";
+        $out = [];
+        $results = scandir($path);
+        foreach ($results as $result) {
+            if ($result === '.' or $result === '..') continue;
+            $filename =  $result;
+            if (is_dir($filename)) {
+                $out = array_merge($out, getModels($filename));
+            }else{
+                $out[] = substr($filename,0,-4);
+            }
+        }
+        return $out;
     }
 }

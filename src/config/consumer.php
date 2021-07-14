@@ -21,7 +21,7 @@ return [
         'products'       => 'Product',
         'terminals'      => 'Terminal',
         'transactions'   => 'Transaction',
-	'ibans'		 => 'Ibans',
-	'sharings'	 => 'Sharings'
+	    'ibans'		     => 'Iban',
+	    'sharings'	     => 'Sharing'
     ],
 ];
