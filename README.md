@@ -75,3 +75,9 @@ $this->app['auth']->viaRequest('api', function ($request) {
   }
 });
 ```
+
+#### Use these directives for <code>JWT configs</code> in .env file
+
+```dotenv
+JWT_SECRET=GKPMVOCKpMCDJQ3GprVA0EfTKGJiTEAImjeKN009Vndls6oRD6raawkRzDoB97AI
+```
