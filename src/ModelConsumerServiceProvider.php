@@ -26,12 +26,17 @@ class ModelConsumerServiceProvider extends ServiceProvider
                 try {
                     $decoded = JWT::decode($token, config('jwt.secret'), array('HS256'));
                     if ($decoded->expires_at < Carbon::now()) {
-                        return response('Unauthorized.', 401);
+                        return;
                     }
                     $model = '\\App\\Models\\User';
-                    return $model::find($decoded->user->id);
+                    $user = $model::find($decoded->user->id);
+                    if ($user) {
+                        return $user;
+                    } else {
+                        return;
+                    }
                 } catch (\Exception $exception) {
-                    return response('Unauthorized.', 401);
+                    return;
                 }
             }
         });
