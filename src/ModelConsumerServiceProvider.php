@@ -9,7 +9,6 @@ use Illuminate\Support\ServiceProvider;
 use Anik\Form\FormRequestServiceProvider;
 use Bschmitt\Amqp\LumenServiceProvider;
 use Flipbox\LumenGenerator\LumenGeneratorServiceProvider;
-use Illuminate\Redis\RedisServiceProvider;
 use Milyoona\ModelConsumer\Observers\ModelObserver;
 
 class ModelConsumerServiceProvider extends ServiceProvider
@@ -25,7 +24,7 @@ class ModelConsumerServiceProvider extends ServiceProvider
             $token = $request->bearerToken();
             if ($token) {
                 try {
-                    $decoded = JWT::decode($token, env('JWT_SECRET'), array('HS256'));
+                    $decoded = JWT::decode($token, config('jwt.secret'), array('HS256'));
                     if ($decoded->expires_at < Carbon::now()) {
                         return response('Unauthorized.', 401);
                     }
@@ -53,7 +52,6 @@ class ModelConsumerServiceProvider extends ServiceProvider
     {
         // Register depends packages service providers
         $this->app->register(LumenServiceProvider::class);
-        $this->app->register(RedisServiceProvider::class);
         $this->app->register(LumenGeneratorServiceProvider::class);
         $this->app->register(FormRequestServiceProvider::class);
 
@@ -73,6 +71,7 @@ class ModelConsumerServiceProvider extends ServiceProvider
             __DIR__.'/config/consumer.php' => lumen_config_path('consumer.php'),
             __DIR__.'/config/amqp.php' => lumen_config_path('amqp.php'),
             __DIR__.'/config/database.php' => lumen_config_path('database.php'),
+            __DIR__.'/config/database.php' => lumen_config_path('jwt.php'),
         ], 'consumer');
 
         // For migrate new migrations
@@ -87,6 +86,9 @@ class ModelConsumerServiceProvider extends ServiceProvider
         }
         if (file_exists($this->app->basePath() . '/config/database.php')) {
             $this->mergeConfigFrom($this->app->basePath() . '/config/database.php', 'database');
+        }
+        if (file_exists($this->app->basePath() . '/config/jwt.php')) {
+            $this->mergeConfigFrom($this->app->basePath() . '/config/jwt.php', 'jwt');
         }
 
         // Base migrations
