@@ -2,6 +2,8 @@
 
 namespace Milyoona\ModelConsumer;
 
+use Carbon\Carbon;
+use Firebase\JWT\JWT;
 use Illuminate\Support\ServiceProvider;
 //Register depends
 use Anik\Form\FormRequestServiceProvider;
@@ -19,6 +21,23 @@ class ModelConsumerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->app['auth']->viaRequest('api', function ($request) {
+            $token = $request->bearerToken();
+            if ($token) {
+                try {
+                    $decoded = JWT::decode($token, env('JWT_SECRET'), array('HS256'));
+                    if ($decoded->expires_at < Carbon::now()) {
+                        return response('Unauthorized.', 401);
+                    }
+                    $model = '\\App\\Models\\User';
+                    return $model::find($decoded->user->id);
+                } catch (\Exception $exception) {
+                    return response('Unauthorized.', 401);
+                }
+            }
+        });
+
+
         foreach (getAppModels() as $model) {
             $model = '\\App\\Models\\' . $model;
             $model::observe(ModelObserver::class);
