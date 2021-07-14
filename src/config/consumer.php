@@ -9,7 +9,7 @@ return [
      * If a migration is base table of microservice, use a ':' after migration name, e.g. 'users:'
      */
     'publish_migration' => [
-        'consumer_logs',
+        'consumer_logs:',
     ],
 
     'queue_name' => null, // e.g. 'ml_user'
