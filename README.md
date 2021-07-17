@@ -40,15 +40,6 @@ php artisan milyoona:install
 php artisan migrate
 ```
 
-#### How to <code>publish</code> a message
-
-```php
-// In Repository
-Amqp::publish( 'users', json_encode( ['method' => 'store', 'data' => $user->setAppends([])] ) ); // method: store, update, delete, forceDelete
-
-return $user->setAppends( ['full_name'] );
-```
-
 #### How to <code>consume</code> messages
 
 ```bash
