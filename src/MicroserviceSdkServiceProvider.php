@@ -9,7 +9,7 @@ use Illuminate\Support\ServiceProvider;
 use Anik\Form\FormRequestServiceProvider;
 use Bschmitt\Amqp\LumenServiceProvider;
 use Flipbox\LumenGenerator\LumenGeneratorServiceProvider;
-use Milyoona\ModelConsumer\Observers\ModelObserver;
+use Milyoona\MicroserviceSdk\Observers\ModelObserver;
 
 class MicroserviceSdkServiceProvider extends ServiceProvider
 {
