@@ -1,6 +1,6 @@
 <?php
 
-namespace Milyoona\ModelConsumer\Console\Commands;
+namespace Milyoona\MicroserviceSdk\Console\Commands;
 
 use Illuminate\Console\Command;
 

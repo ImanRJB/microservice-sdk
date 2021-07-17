@@ -1,6 +1,6 @@
 <?php
 
-namespace Milyoona\ModelConsumer;
+namespace Milyoona\MicroserviceSdk;
 
 use Carbon\Carbon;
 use Firebase\JWT\JWT;
@@ -11,7 +11,7 @@ use Bschmitt\Amqp\LumenServiceProvider;
 use Flipbox\LumenGenerator\LumenGeneratorServiceProvider;
 use Milyoona\ModelConsumer\Observers\ModelObserver;
 
-class ModelConsumerServiceProvider extends ServiceProvider
+class MicroserviceSdkServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -65,7 +65,7 @@ class ModelConsumerServiceProvider extends ServiceProvider
             $commands = array_diff(scandir(__DIR__.'/Console/Commands'), array('.', '..'));
             $basenames = [];
             foreach($commands as $index => $command) {
-                $basenames[$index] = '\Milyoona\ModelConsumer\Console\Commands' . '\\' . basename($command, '.php');
+                $basenames[$index] = '\Milyoona\MicroserviceSdk\Console\Commands' . '\\' . basename($command, '.php');
             }
             $basenames = array_merge($basenames, ['\Laravelista\LumenVendorPublish\VendorPublishCommand']);
             $this->commands($basenames);

@@ -29,7 +29,7 @@ if ( ! function_exists('consumerCrud') )
     function consumerCrud($routingKey, $method, $data)
     {
         try {
-            $model = '\\Milyoona\\ModelConsumer\\Models\\' . config('consumer.models')[$routingKey];
+            $model = '\\Milyoona\\MicroserviceSdk\\Models\\' . config('consumer.models')[$routingKey];
 
             switch($method) {
                 case 'store':
@@ -49,7 +49,7 @@ if ( ! function_exists('consumerCrud') )
                     break;
             }
         } catch (Exception $exception) {
-            \Milyoona\ModelConsumer\Models\ConsumerLog::create([
+            \Milyoona\MicroserviceSdk\Models\ConsumerLog::create([
                 'queue' => config('consumer.queue_name'),
                 'routing_key' => $routingKey,
                 'data' => $data,

@@ -1,6 +1,6 @@
 <?php
 
-namespace Milyoona\ModelConsumer\Models;
+namespace Milyoona\MicroserviceSdk\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

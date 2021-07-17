@@ -1,6 +1,6 @@
 {
-    "name": "milyoona/model-consumer",
-    "description": "Model consumer for lumen projects",
+    "name": "milyoona/microservice-sdk",
+    "description": "Microservice SDK for lumen projects",
     "keywords": [],
     "license": "MIT",
     "type": "library",
@@ -19,7 +19,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Milyoona\\ModelConsumer\\": "src/"
+            "Milyoona\\MicroserviceSdk\\": "src/"
         },
         "files": [
             "src/Helper/functions.php"
@@ -28,7 +28,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Milyoona\\ModelConsumer\\ModelConsumerServiceProvider"
+                "Milyoona\\MicroserviceSdk\\MicroserviceSdkServiceProvider"
             ]
         }
     }

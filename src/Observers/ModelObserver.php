@@ -1,6 +1,6 @@
 <?php
 
-namespace Milyoona\ModelConsumer\Observers;
+namespace Milyoona\MicroserviceSdk\Observers;
 
 use Bschmitt\Amqp\Facades\Amqp;
 use Illuminate\Database\Eloquent\Model;

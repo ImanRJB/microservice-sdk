@@ -9,7 +9,7 @@ composer require milyoona/model-consumer
 ###### Register the Service Provider in bootstrap/app.php for <code>Lumen</code>:
 
 ```php
-$app->register(Milyoona\ModelConsumer\ModelConsumerServiceProvider::class);
+$app->register(Milyoona\ModelConsumer\MicroserviceSdkServiceProvider::class);
 ```
   
 ###### Publish configuration files:
