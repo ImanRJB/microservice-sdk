@@ -61,3 +61,19 @@ AMQP_PASSWORD=
 JWT_SECRET=GKPMVOCKpMCDJQ3GprVA0EfTKGJiTEAImjeKN009Vndls6oRD6raawkRzDoB97AI
 JWT_LIFETIME=2
 ```
+
+#### Use these directives for <code>backup database</code> in .env file
+
+```dotenv
+DB_HOST_BACKUP=
+DB_PORT_BACKUP=
+DB_DATABASE_BACKUP=
+DB_USERNAME_BACKUP=
+DB_PASSWORD_BACKUP=
+```
+
+#### How to <code>sync</code> database
+
+```bash
+php artisan milyoona:sync
+```
