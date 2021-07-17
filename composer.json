@@ -22,7 +22,8 @@
             "Milyoona\\MicroserviceSdk\\": "src/"
         },
         "files": [
-            "src/Helper/functions.php"
+            "src/Helper/functions.php",
+            "src/Helper/appHelper.php"
         ]
     },
     "extra": {
