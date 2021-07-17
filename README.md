@@ -1,4 +1,4 @@
-## Milyoona Model Consumer
+## Milyoona Microservice SDK
 
 #### How to install
 
