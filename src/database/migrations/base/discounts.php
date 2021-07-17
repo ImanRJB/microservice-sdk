@@ -32,7 +32,7 @@ class CreateDiscountsTable extends Migration
                 $table->foreign('product_product_no')
                     ->references('product_no')
                     ->on('products')
-                    ->onDelete('cascade')
+                    ->onDelete('set null')
                     ->onUpdate('cascade');
             }
 

@@ -2,7 +2,10 @@
 
 return [
     'all_migrations' => [
-        'consumer_logs', 'users',
+        'admins',
+        'departments',
+        'consumer_logs',
+        'users',
         'terminals',
         'transactions',
         'products',
@@ -15,12 +18,15 @@ return [
         'shaparak_user_requests',
         'shaparak_terminal_requests',
         'shaparak_tax_requests',
-        'departments',
         'tickets',
         'ticket_messages',
         'balances',
         'irankishes',
-        'withdraw_records'
+        'withdraw_records',
+        'blog_categories',
+        'blogs',
+        'documents',
+        'plugins'
     ],
     
     /*
@@ -34,6 +40,8 @@ return [
 
     // 'routing_key' => 'model'
     'models' => [
+        'admins' => 'Admin',
+        'departments' => 'Department',
         'consumer_logs' => 'ConsumerLog',
         'users' => 'User',
         'products' => 'Product',
@@ -48,11 +56,14 @@ return [
 	    'shaparak_user_requests' => 'ShaparakUserRequest',
 	    'shaparak_terminal_requests' => 'ShaparakTerminalRequest',
 	    'shaparak_tax_requests' => 'ShaparakTaxRequest',
-        'departments' => 'Department',
         'tickets' => 'Ticket',
         'tickets_messages' => 'Message',
         'balances' => 'Balance',
         'irankishes' => 'Irankish',
-        'withdraw_records' => 'WithdrawRecord'
+        'withdraw_records' => 'WithdrawRecord',
+        'blog_categories' => 'BlogCategory',
+        'blogs' => 'Blog',
+        'documents' => 'Document',
+        'plugins' => 'Plugin'
     ],
 ];

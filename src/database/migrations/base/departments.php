@@ -20,24 +20,24 @@ class CreateDepartmentsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('admin_department', function(Blueprint $table) {
-            $table->unsignedBigInteger('admin_id');
-            $table->unsignedBigInteger('department_id');
+        if (checkRelation('admins')) {
+            Schema::create('admin_department', function (Blueprint $table) {
+                $table->unsignedBigInteger('admin_id');
+                $table->unsignedBigInteger('department_id');
 
-            $table->foreign('department_id')
-                ->references('id')
-                ->on('departments')
-                ->onDelete('cascade');
+                $table->foreign('department_id')
+                    ->references('id')
+                    ->on('departments')
+                    ->onDelete('cascade');
 
-            if(checkRelation('admins')) {
                 $table->foreign('admin_id')
                     ->references('id')
                     ->on('admins')
                     ->onDelete('cascade');
-            }
 
-            $table->primary(['department_id' , 'admin_id']);
-        });
+                $table->primary(['department_id', 'admin_id']);
+            });
+        }
     }
 
     /**
@@ -47,7 +47,9 @@ class CreateDepartmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('department_admin');
         Schema::dropIfExists('departments');
+        if (checkRelation('admins')) {
+            Schema::dropIfExists('department_admin');
+        }
     }
 }

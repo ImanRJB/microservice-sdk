@@ -39,7 +39,7 @@ class CreateIrankishesTable extends Migration
                 $table->foreign('terminal_website')
                     ->references('website')
                     ->on('terminals')
-                    ->onDelete('cascade')
+                    ->onDelete('set null')
                     ->onUpdate('cascade');
             }
         });

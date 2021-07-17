@@ -59,7 +59,7 @@ class CreateTransactionsTable extends Migration
                 $table->foreign('terminal_website')
                     ->references('website')
                     ->on('terminals')
-                    ->onDelete('cascade')
+                    ->onDelete('set null')
                     ->onUpdate('cascade');
             }
 
@@ -67,7 +67,7 @@ class CreateTransactionsTable extends Migration
                 $table->foreign('user_id')
                     ->references('id')
                     ->on('users')
-                    ->onDelete('cascade')
+                    ->onDelete('set null')
                     ->onUpdate('cascade');
             }
         });
