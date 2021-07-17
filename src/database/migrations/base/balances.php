@@ -15,8 +15,8 @@ class CreateBalancesTable extends Migration
     {
         Schema::create('balances', function (Blueprint $table) {
             (isBase('balances')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
-            $table->string('terminal_website')->index();
-            $table->unsignedBigInteger('user_id')->index();
+            $table->string('terminal_website')->index()->nullable();
+            $table->unsignedBigInteger('user_id')->index()->nullable();
             $table->string('transaction_request_id')->index()->unique();
             $table->integer('amount');
             $table->integer('old_balance');

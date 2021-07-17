@@ -16,7 +16,6 @@ class CreateDashboardChartsTable extends Migration
     {
         Schema::create('dashboard_charts', function (Blueprint $table) {
             (isBase('dashboard_charts')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
-            $table->increments('id');
             $table->string('terminal_website')->index();
             $table->unsignedBigInteger('user_id')->index();
             $table->json('weekly_count')->nullable();

@@ -16,7 +16,6 @@ class CreateJobCategoriesTable extends Migration
     {
         Schema::create('job_categories', function (Blueprint $table) {
             (isBase('job_categories')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
-            $table->unsignedBigInteger('id');
             $table->string('name');
             $table->string('code');
             $table->string('sub_code')->unique();

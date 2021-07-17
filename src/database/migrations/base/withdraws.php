@@ -16,9 +16,8 @@ class CreateWithdrawsTable extends Migration
     {
         Schema::create('withdraws', function (Blueprint $table) {
             (isBase('withdraws')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
-            $table->unsignedBigInteger('id')->primary();
-            $table->string('terminal_website')->index();
-            $table->unsignedBigInteger('user_id')->index();
+            $table->string('terminal_website')->index()->nullable();
+            $table->unsignedBigInteger('user_id')->index()->nullable();
             $table->string('payment_id')->unique();
             $table->string('reference_no')->nullable();
             $table->string('wage_amount');

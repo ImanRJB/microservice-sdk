@@ -16,7 +16,7 @@ class CreateIbansTable extends Migration
     {
         Schema::create('ibans', function (Blueprint $table) {
             (isBase('ibans')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
-            $table->unsignedInteger("user_id")->index();
+            $table->unsignedBigInteger("user_id")->index();
             $table->string('iban')->unique();
             $table->string('label');
             $table->string('bank_name');
