@@ -14,7 +14,7 @@ class CreateShaparakTaxRequestsTable extends Migration
     public function up()
     {
         Schema::create('shaparak_tax_requests', function (Blueprint $table) {
-            (isBase('shaparak_tax_requests')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
+            (isBase('shaparak_tax_requests')) ? $table->id() : $table->unsignedBigInteger('id')->primary();
             $table->unsignedBigInteger('user_id')->index();
             $table->string('tracking_number');
             $table->string('follow_code')->nullable();

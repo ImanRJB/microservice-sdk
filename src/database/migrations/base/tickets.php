@@ -14,7 +14,7 @@ class CreateTicketsTable extends Migration
     public function up()
     {
         Schema::create('tickets', function (Blueprint $table) {
-            (isBase('tickets')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
+            (isBase('tickets')) ? $table->id() : $table->unsignedBigInteger('id')->primary();
             $table->unsignedBigInteger('user_id')->index();
             $table->unsignedBigInteger('department_id')->index();
             $table->string('title');

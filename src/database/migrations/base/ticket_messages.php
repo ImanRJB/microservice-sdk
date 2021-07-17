@@ -14,7 +14,7 @@ class CreateTicketMessagesTable extends Migration
     public function up()
     {
         Schema::create('ticket_messages', function (Blueprint $table) {
-            (isBase('ticket_messages')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
+            (isBase('ticket_messages')) ? $table->id() : $table->unsignedBigInteger('id')->primary();
             $table->unsignedBigInteger('ticket_id')->index();
             $table->unsignedBigInteger('admin_id')->index()->nullable();
             $table->unsignedBigInteger('user_id')->index()->nullable();

@@ -14,7 +14,7 @@ class CreateBlogsTable extends Migration
     public function up()
     {
         Schema::create('blogs', function (Blueprint $table) {
-            (isBase('blogs')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
+            (isBase('blogs')) ? $table->id() : $table->unsignedBigInteger('id')->primary();
             $table->unsignedBigInteger('admin_id')->index()->nullable();
             $table->unsignedBigInteger('blog_category_id')->index()->nullable();
             $table->string('photo');

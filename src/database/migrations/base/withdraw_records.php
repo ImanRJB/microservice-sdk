@@ -14,7 +14,7 @@ class CreateWithdrawRecordsTable extends Migration
     public function up()
     {
         Schema::create('withdraw_records', function (Blueprint $table) {
-            (isBase('withdraw_records')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
+            (isBase('withdraw_records')) ? $table->id() : $table->unsignedBigInteger('id')->primary();
             $table->string('withdraw_payment_id')->index();
 
             $table->string('acceptor_code');

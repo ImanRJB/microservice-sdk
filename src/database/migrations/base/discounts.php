@@ -14,7 +14,7 @@ class CreateDiscountsTable extends Migration
     public function up()
     {
         Schema::create('discounts', function (Blueprint $table) {
-            (isBase('discounts')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
+            (isBase('discounts')) ? $table->id() : $table->unsignedBigInteger('id')->primary();
             $table->string('product_product_no')->index()->nullable();
             $table->string('terminal_website')->index();
             $table->unsignedBigInteger('user_id')->index();

@@ -14,7 +14,7 @@ class CreateIrankishesTable extends Migration
     public function up()
     {
         Schema::create('irankishes', function (Blueprint $table) {
-            (isBase('irankishes')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
+            (isBase('irankishes')) ? $table->id() : $table->unsignedBigInteger('id')->primary();
             $table->string('terminal_website')->index()->nullable();
             $table->unsignedInteger('shaparak_request_id')->index()->nullable();
             $table->string('terminal')->nullable();

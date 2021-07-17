@@ -14,7 +14,7 @@ class CreatePluginsTable extends Migration
     public function up()
     {
         Schema::create('plugins', function (Blueprint $table) {
-            (isBase('plugins')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
+            (isBase('plugins')) ? $table->id() : $table->unsignedBigInteger('id')->primary();
             $table->string('title');
             $table->string('file');
             $table->string('document');

@@ -14,7 +14,7 @@ class CreateDocumentsTable extends Migration
     public function up()
     {
         Schema::create('documents', function (Blueprint $table) {
-            (isBase('documents')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
+            (isBase('documents')) ? $table->id() : $table->unsignedBigInteger('id')->primary();
             $table->string('title');
             $table->longText('body');
             $table->softDeletes();

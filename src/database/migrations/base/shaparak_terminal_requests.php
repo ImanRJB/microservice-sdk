@@ -14,7 +14,7 @@ class CreateShaparakTerminalRequestsTable extends Migration
     public function up()
     {
         Schema::create('shaparak_terminal_requests', function (Blueprint $table) {
-            (isBase('shaparak_terminal_requests')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
+            (isBase('shaparak_terminal_requests')) ? $table->id() : $table->unsignedBigInteger('id')->primary();
             $table->unsignedBigInteger('user_id')->index();
             $table->string("terminal_website")->index();
             $table->string('tracking_number');

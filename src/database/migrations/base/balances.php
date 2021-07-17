@@ -14,7 +14,7 @@ class CreateBalancesTable extends Migration
     public function up()
     {
         Schema::create('balances', function (Blueprint $table) {
-            (isBase('balances')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
+            (isBase('balances')) ? $table->id() : $table->unsignedBigInteger('id')->primary();
             $table->string('terminal_website')->index()->nullable();
             $table->unsignedBigInteger('user_id')->index()->nullable();
             $table->string('transaction_request_id')->index()->unique();

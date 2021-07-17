@@ -14,7 +14,7 @@ class CreateBlogCategoriesTable extends Migration
     public function up()
     {
         Schema::create('blog_categories', function (Blueprint $table) {
-            (isBase('blog_categories')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
+            (isBase('blog_categories')) ? $table->id() : $table->unsignedBigInteger('id')->primary();
             $table->string('label');
             $table->string('slug')->unique();
             $table->softDeletes();

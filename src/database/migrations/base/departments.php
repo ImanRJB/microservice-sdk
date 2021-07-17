@@ -14,7 +14,7 @@ class CreateDepartmentsTable extends Migration
     public function up()
     {
         Schema::create('departments', function (Blueprint $table) {
-            (isBase('departments')) ? $table->id() : $table->unsignedBigInteger('id')->index()->unique();
+            (isBase('departments')) ? $table->id() : $table->unsignedBigInteger('id')->primary();
             $table->string('name');
             $table->string('label');
             $table->timestamps();
