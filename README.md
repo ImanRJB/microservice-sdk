@@ -3,13 +3,13 @@
 #### How to install
 
 ```bash
-composer require milyoona/model-consumer
+composer require milyoona/microservice-sdk
 ```
 
 ###### Register the Service Provider in bootstrap/app.php for <code>Lumen</code>:
 
 ```php
-$app->register(Milyoona\ModelConsumer\MicroserviceSdkServiceProvider::class);
+$app->register(Milyoona\MicroserviceSdk\MicroserviceSdkServiceProvider::class);
 ```
   
 ###### Publish configuration files:
@@ -62,18 +62,6 @@ AMQP_HOST=
 AMQP_PORT=
 AMQP_USER=
 AMQP_PASSWORD=
-```
-
-#### Add below code to Providers/AuthServiceProvider.php in <code>boot</code> method:
-
-```php
-$this->app['auth']->viaRequest('api', function ($request) {
-  $token = $request->bearerToken();
-  $user_id = app('redis')->get($token);
-  if ($token) {
-     return User::find($user_id);
-  }
-});
 ```
 
 #### Use these directives for <code>JWT configs</code> in .env file
