@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Milyoona\MicroserviceSdk\Console\Commands;
 
 use Bschmitt\Amqp\Facades\Amqp;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
-use Milyoona\MicroserviceSdk\Models\User;
 
-class SyncerCommand extends Command
+class MilyoonaSyncer extends Command
 {
     /**
      * The name and signature of the console command.
