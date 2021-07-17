@@ -77,7 +77,7 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
             __DIR__.'/config/amqp.php' => lumen_config_path('amqp.php'),
             __DIR__.'/config/database.php' => lumen_config_path('database.php'),
             __DIR__.'/config/jwt.php' => lumen_config_path('jwt.php'),
-        ], 'consumer');
+        ], 'microservice-sdk');
 
         // For migrate new migrations
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations/news');

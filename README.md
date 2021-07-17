@@ -15,7 +15,7 @@ $app->register(Milyoona\MicroserviceSdk\MicroserviceSdkServiceProvider::class);
 ###### Publish configuration files:
 
 ```bash
-php artisan vendor:publish --tag=consumer
+php artisan vendor:publish --tag=microservice-sdk
 ```
   
 ###### Set prefix in route for <code>Lumen</code>:
