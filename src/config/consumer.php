@@ -26,7 +26,9 @@ return [
         'blog_categories',
         'blogs',
         'documents',
-        'plugins'
+        'plugins',
+        'notifications',
+        'user_notifications'
     ],
     
     /*
@@ -64,6 +66,7 @@ return [
         'blog_categories'                       => 'BlogCategory',
         'blogs'                                 => 'Blog',
         'documents'                             => 'Document',
-        'plugins'                               => 'Plugin'
+        'plugins'                               => 'Plugin',
+        'user_notifications'                    => 'UserNotification',
     ],
 ];
