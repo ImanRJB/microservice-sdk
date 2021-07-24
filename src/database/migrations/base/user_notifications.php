@@ -15,7 +15,7 @@ class CreateUserNotificationsTable extends Migration
     {
         Schema::create('user_notifications', function (Blueprint $table) {
             (isBase('user_notifications')) ? $table->id() : $table->unsignedBigInteger('id')->primary();
-            $table->unsignedInteger('user_id')->index();
+            $table->unsignedBigInteger('user_id')->index();
             $table->boolean('ticket_sms')->default(0);
             $table->boolean('ticket_email')->default(0);
             $table->boolean('transaction_sms')->default(0);
