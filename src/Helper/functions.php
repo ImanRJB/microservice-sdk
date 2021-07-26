@@ -101,12 +101,6 @@ if (!function_exists('app_path')) {
 }
 
 if (!function_exists('getAppModels')) {
-    /**
-     * Get the path to the application folder.
-     *
-     * @param  string $path
-     * @return string
-     */
     function getAppModels()
     {
         $path = app_path() . "/Models";
@@ -118,6 +112,23 @@ if (!function_exists('getAppModels')) {
             if (is_dir($filename)) {
                 $out = array_merge($out, getModels($filename));
             }else{
+                $out[] = substr($filename,0,-4);
+            }
+        }
+        return $out;
+    }
+}
+
+if (!function_exists('getRepositories')) {
+    function getRepositories()
+    {
+        $path = app_path() . "/Repositories";
+        $out = [];
+        $results = scandir($path);
+        foreach ($results as $result) {
+            if ($result === '.' or $result === '..') continue;
+            $filename =  $result;
+            if (!is_dir($path . '/' . $filename)) {
                 $out[] = substr($filename,0,-4);
             }
         }

@@ -104,5 +104,13 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
                 ], 'consumer_' . basename($migration, '.php') );
             }
         }
+
+        // Register Repositories
+        foreach (getRepositories() as $repository) {
+            $this->app->bind(
+                'App\\Repositories\\Interfaces\\' . $repository . 'Interface',
+                'App\\Repositories\\' . $repository,
+            );
+        }
     }
 }
