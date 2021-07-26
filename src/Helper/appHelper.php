@@ -1,16 +1,4 @@
 <?php
-if ( ! function_exists('convertToEn') ) {
-    function convertToEn($value)
-    {
-        $persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-        $arabic = ['٩', '٨', '٧', '٦', '٥', '٤', '٣', '٢', '١', '٠'];
-        $num = range(0, 9);
-        $convertedPersianNums = str_replace($persian, $num, $value);
-        $englishNumbersOnly = str_replace($arabic, $num, $convertedPersianNums);
-        return $englishNumbersOnly;
-    }
-}
-
 if ( ! function_exists('ibanValidation') ) {
     function ibanValidation($iban)
     {

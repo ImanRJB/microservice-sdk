@@ -112,5 +112,8 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
                 'App\\Repositories\\' . $repository
             );
         }
+
+        // Register Middlewares
+        $this->app->middleware(\Milyoona\MicroserviceSdk\Middleware\PersianNumber::class);
     }
 }
