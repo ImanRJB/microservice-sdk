@@ -109,7 +109,7 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
         foreach (getRepositories() as $repository) {
             $this->app->bind(
                 'App\\Repositories\\Interfaces\\' . $repository . 'Interface',
-                'App\\Repositories\\' . $repository,
+                'App\\Repositories\\' . $repository
             );
         }
     }
