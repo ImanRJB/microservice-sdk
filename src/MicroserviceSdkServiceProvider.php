@@ -119,16 +119,11 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
 
         // Change app lang to Fa
         $this->app->singleton('translator', function () {
-            $this->app->instance('path.lang', $this->getLanguagePath());
+            $this->app->instance('path.lang', __DIR__ . '/lang');
             $this->app->register(TranslationServiceProvider::class);
             return $this->app->make('translator');
         });
 
         $this->app->setLocale('fa');
-    }
-
-    protected function getLanguagePath()
-    {
-        return __DIR__ . '/lang';
     }
 }
