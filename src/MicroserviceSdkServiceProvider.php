@@ -9,6 +9,7 @@ use Illuminate\Support\ServiceProvider;
 use Anik\Form\FormRequestServiceProvider;
 use Bschmitt\Amqp\LumenServiceProvider;
 use Flipbox\LumenGenerator\LumenGeneratorServiceProvider;
+use Illuminate\Translation\TranslationServiceProvider;
 use Milyoona\MicroserviceSdk\Observers\ModelObserver;
 
 class MicroserviceSdkServiceProvider extends ServiceProvider
@@ -115,5 +116,19 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
 
         // Register Middlewares
         $this->app->middleware(\Milyoona\MicroserviceSdk\Middleware\PersianNumber::class);
+
+        // Change app lang to Fa
+        $this->app->singleton('translator', function () {
+            $this->app->instance('path.lang', $this->getLanguagePath());
+            $this->app->register(TranslationServiceProvider::class);
+            return $this->app->make('translator');
+        });
+
+        $this->app->setLocale('fa');
+    }
+
+    protected function getLanguagePath()
+    {
+        return __DIR__ . '/lang';
     }
 }
