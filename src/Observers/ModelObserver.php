@@ -4,35 +4,86 @@ namespace Milyoona\MicroserviceSdk\Observers;
 
 use Bschmitt\Amqp\Facades\Amqp;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class ModelObserver
 {
+    public function creating() {
+        DB::beginTransaction();
+    }
+
+
+    public function updating() {
+        DB::beginTransaction();
+    }
+
+
+    public function deleting() {
+        DB::beginTransaction();
+    }
+
+
+    public function restoring() {
+        DB::beginTransaction();
+    }
+
+
+    public function forceDeleting() {
+        DB::beginTransaction();
+    }
+
+
     public function created(Model $model)
     {
-        Amqp::publish($model->getTable(), json_encode( ['method' => 'store', 'data' => $model] ));
+        try {
+            Amqp::publish($model->getTable(), json_encode( ['method' => 'store', 'data' => $model] ));
+            DB::commit();
+        } catch (\Exception $exception) {
+            abort(500);
+        }
     }
 
 
     public function updated(Model $model)
     {
-        Amqp::publish($model->getTable(), json_encode( ['method' => 'update', 'data' => $model] ));
+        try {
+            Amqp::publish($model->getTable(), json_encode( ['method' => 'update', 'data' => $model] ));
+            DB::commit();
+        } catch (\Exception $exception) {
+            abort(500);
+        }
     }
 
 
     public function deleted(Model $model)
     {
-        Amqp::publish($model->getTable(), json_encode( ['method' => 'delete', 'data' => $model] ));
+        try {
+            Amqp::publish($model->getTable(), json_encode( ['method' => 'delete', 'data' => $model] ));
+            DB::commit();
+        } catch (\Exception $exception) {
+            abort(500);
+        }
     }
 
 
     public function restored(Model $model)
     {
-        Amqp::publish($model->getTable(), json_encode( ['method' => 'restore', 'data' => $model] ));
+        try {
+            Amqp::publish($model->getTable(), json_encode( ['method' => 'restore', 'data' => $model] ));
+            DB::commit();
+        } catch (\Exception $exception) {
+            abort(500);
+        }
     }
 
 
     public function forceDeleted(Model $model)
     {
-        Amqp::publish($model->getTable(), json_encode( ['method' => 'forceDelete', 'data' => $model] ));
+        try {
+            Amqp::publish($model->getTable(), json_encode( ['method' => 'forceDelete', 'data' => $model] ));
+            DB::commit();
+        } catch (\Exception $exception) {
+            abort(500);
+        }
     }
 }
