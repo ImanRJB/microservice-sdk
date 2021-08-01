@@ -123,7 +123,6 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
             $this->app->register(TranslationServiceProvider::class);
             return $this->app->make('translator');
         });
-
         $this->app->setLocale('fa');
     }
 }

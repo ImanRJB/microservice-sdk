@@ -5,7 +5,7 @@ if ( ! function_exists('ibanValidation') ) {
         if (substr($iban, 0, 2) != 'IR' and !is_int(substr($iban, 2))) {
             return false;
         }
-        return bcmod(substr($iban, 4) . '1827' . substr($iban, 2, 2), '97') == 1 ? true : false;
+        return bcmod(substr($iban, 4) . '1827' . substr($iban, 2, 2), '97') == 1;
     }
 }
 
