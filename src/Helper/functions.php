@@ -123,15 +123,18 @@ if (!function_exists('getRepositories')) {
     function getRepositories()
     {
         $path = app_path() . "/Repositories";
-        $out = [];
-        $results = scandir($path);
-        foreach ($results as $result) {
-            if ($result === '.' or $result === '..') continue;
-            $filename =  $result;
-            if (!is_dir($path . '/' . $filename)) {
-                $out[] = substr($filename,0,-4);
+        if (file_exists($path)) {
+            $out = [];
+            $results = scandir($path);
+            foreach ($results as $result) {
+                if ($result === '.' or $result === '..') continue;
+                $filename =  $result;
+                if (!is_dir($path . '/' . $filename)) {
+                    $out[] = substr($filename,0,-4);
+                }
             }
+            return $out;
         }
-        return $out;
+        return [];
     }
 }
