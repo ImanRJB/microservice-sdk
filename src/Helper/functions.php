@@ -39,12 +39,10 @@ if ( ! function_exists('consumerCrud') )
                     $model::withTrashed()->find($data['id'])->update($data);
                     break;
                 case 'delete':
-                    if ($model::find($data['id'])) {
-                        $model::find($data['id'])->delete();
-                    }
+                    $model::withTrashed()->find($data['id'])->delete();
                     break;
                 case 'forceDelete':
-                    $model::find($data['id'])->forceDelete();
+                    $model::withTrashed()->find($data['id'])->forceDelete();
                     break;
                 case 'restore':
                     $model::withTrashed()->find($data['id'])->restore();
