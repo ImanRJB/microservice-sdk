@@ -115,7 +115,10 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
         }
 
         // Register Middlewares
-        $this->app->middleware(\Milyoona\MicroserviceSdk\Middleware\PersianNumber::class);
+        if (!$this->app() instanceof \Illuminate\Foundation\Application) {
+            $this->app->middleware(\Milyoona\MicroserviceSdk\Middleware\PersianNumber::class);
+        }
+
 
         // Change app lang to Fa
         $this->app->singleton('translator', function () {
