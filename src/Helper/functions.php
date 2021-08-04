@@ -39,7 +39,9 @@ if ( ! function_exists('consumerCrud') )
                     $model::find($data['id'])->update($data);
                     break;
                 case 'delete':
-                    $model::find($data['id'])->delete();
+                    if ($model::find($data['id'])) {
+                        $model::find($data['id'])->delete();
+                    }
                     break;
                 case 'forceDelete':
                     $model::find($data['id'])->forceDelete();
