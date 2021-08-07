@@ -127,5 +127,13 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
             return $this->app->make('translator');
         });
         $this->app->setLocale('fa');
+
+
+        // Register Routes
+        $this->app->router->group([
+            'prefix' => 'microservice/' . config('consumer.queue_name')
+        ], function ($router) {
+            require __DIR__.'/routes/api.php';
+        });
     }
 }
