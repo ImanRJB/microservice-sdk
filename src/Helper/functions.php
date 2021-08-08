@@ -112,7 +112,7 @@ if (!function_exists('getAppModels')) {
             if ($result === '.' or $result === '..') continue;
             $filename =  $result;
             if (is_dir($filename)) {
-                $out = array_merge($out, getModels($filename));
+                $out = array_merge($out, getAppModels($filename));
             }else{
                 $out[] = substr($filename,0,-4);
             }

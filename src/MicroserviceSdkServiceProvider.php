@@ -43,9 +43,12 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
         });
 
 
+        $except = ['Admin', 'Role'];
         foreach (getAppModels() as $model) {
-            $model = '\\App\\Models\\' . $model;
-            $model::observe(ModelObserver::class);
+            if (array_search($model, $except) === false) {
+                $model = '\\App\\Models\\' . $model;
+                $model::observe(ModelObserver::class);
+            }
         }
     }
 
