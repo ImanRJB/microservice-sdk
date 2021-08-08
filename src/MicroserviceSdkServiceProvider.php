@@ -115,7 +115,11 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
         }
 
         // Register Middlewares
-        if (!$this->app instanceof \Illuminate\Foundation\Application) {
+        if ($this->app instanceof \Illuminate\Foundation\Application) {
+            $router = $this->app['router'];
+            $router->pushMiddlewareToGroup('api', \Milyoona\MicroserviceSdk\Middleware\PersianNumber::class);
+            $router->pushMiddlewareToGroup('web', \Milyoona\MicroserviceSdk\Middleware\PersianNumber::class);
+        } else {
             $this->app->middleware(\Milyoona\MicroserviceSdk\Middleware\PersianNumber::class);
         }
 
