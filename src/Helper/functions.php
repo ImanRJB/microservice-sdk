@@ -31,24 +31,26 @@ if ( ! function_exists('consumerCrud') )
         try {
             $model = '\\Milyoona\\MicroserviceSdk\\Models\\' . config('consumer.models')[$routingKey];
 
-            switch($method) {
-                case 'store':
-                    $model::create($data);
-                    break;
-                case 'update':
-                    $model::withTrashed()->find($data['id'])->update($data);
-                    break;
-                case 'delete':
-                    $model::withTrashed()->find($data['id'])->delete();
-                    break;
-                case 'forceDelete':
-                    if ($model::withTrashed()->find($data['id'])) {
-                        $model::withTrashed()->find($data['id'])->forceDelete();
-                    }
-                    break;
-                case 'restore':
-                    $model::withTrashed()->find($data['id'])->restore();
-                    break;
+            if (!isBase($routingKey)) {
+                switch($method) {
+                    case 'store':
+                        $model::create($data);
+                        break;
+                    case 'update':
+                        $model::withTrashed()->find($data['id'])->update($data);
+                        break;
+                    case 'delete':
+                        $model::withTrashed()->find($data['id'])->delete();
+                        break;
+                    case 'forceDelete':
+                        if ($model::withTrashed()->find($data['id'])) {
+                            $model::withTrashed()->find($data['id'])->forceDelete();
+                        }
+                        break;
+                    case 'restore':
+                        $model::withTrashed()->find($data['id'])->restore();
+                        break;
+                }
             }
         } catch (Exception $exception) {
             \Milyoona\MicroserviceSdk\Models\ConsumerLog::create([
