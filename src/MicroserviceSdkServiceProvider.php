@@ -138,6 +138,7 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
 
         // Register Routes
         $this->app->router->group([
+            'namespace' => 'Milyoona\MicroserviceSdk\Http\Controllers',
             'prefix' => 'microservice/' . config('consumer.queue_name')
         ], function ($router) {
             require __DIR__.'/routes/api.php';
