@@ -11,7 +11,5 @@
 |
 */
 
-$router->get('available', function () {
-    return response('', \Illuminate\Http\Response::HTTP_OK);
-});
+$router->get('status', ['uses' => 'MicroserviceController@index']);
 
