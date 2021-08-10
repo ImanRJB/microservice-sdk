@@ -16,9 +16,11 @@ class CreateConsumerLogsTable extends Migration
         Schema::create('consumer_logs', function (Blueprint $table) {
             (isBase('consumer_logs')) ? $table->id() : $table->unsignedBigInteger('id')->primary();
             $table->string('queue');
-            $table->string('routing_key');
+            $table->string('model');
+            $table->string('method');
             $table->json('data');
-            $table->longText('exception');
+            $table->longText('exception')->nullable();
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }
