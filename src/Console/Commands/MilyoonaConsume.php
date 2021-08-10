@@ -44,7 +44,7 @@ class MilyoonaConsume extends Command
             $method = json_decode($message->body, true)['method'];
             $data = json_decode($message->body, true)['data'];
 
-            if (isBase($routingKey)) {
+            if (!isBase($routingKey)) {
                 consumerCrud($routingKey, $method, $data);
             }
 
