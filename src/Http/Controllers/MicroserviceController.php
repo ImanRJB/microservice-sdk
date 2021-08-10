@@ -9,15 +9,17 @@ class MicroserviceController
 {
     public function index()
     {
-        $consumer_logs = ConsumerLog::get()->count();
+        $consumer_logs = ConsumerLog::whereStatus(1)->get()->count();
+        $consumer_error_logs = ConsumerLog::whereStatus(0)->get()->count();
         $all_models = [];
         foreach (getAppModels() as $model) {
             $model = '\\App\\Models\\' . $model;
-            $all_models[strtolower(str_replace('\\App\Models\\', '', $model))] = $model::withTrashed()->get()->count();
-            $deleted_models[strtolower(str_replace('\\App\Models\\', '', $model))] = $model::onlyTrashed()->get()->count();
-            $updated_models[strtolower(str_replace('\\App\Models\\', '', $model))] = $model::latest()->first() ? $model::latest()->first()->updated_at->format('Y-m-d H:i:s') : null;
+            $model_name = str_replace('\\App\Models\\', '', $model);
+            $all_models[strtolower($model_name)] = $model::withTrashed()->get()->count();
+            $deleted_models[strtolower($model_name)] = $model::onlyTrashed()->get()->count();
+            $updated_models[strtolower($model_name)] = ConsumerLog::whereModel($model_name)->whereStatus(1)->get()->count();
         }
 
-        return response(['consumer_logs' => $consumer_logs, 'all_models' => $all_models, 'deleted_models' => $deleted_models, 'updated_models' => $updated_models], Response::HTTP_OK);
+        return response(['consumer_logs' => $consumer_logs, 'consumer_error_logs' => $consumer_error_logs, 'all_models' => $all_models, 'deleted_models' => $deleted_models, 'updated_models' => $updated_models], Response::HTTP_OK);
     }
 }
