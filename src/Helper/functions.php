@@ -28,6 +28,11 @@ if ( ! function_exists('consumerCrud') )
 {
     function consumerCrud($routingKey, $method, $data)
     {
+        $consumer_log = new \Milyoona\MicroserviceSdk\Models\ConsumerLog;
+        $consumer_log->queue = config('consumer.queue_name');
+        $consumer_log->model = config('consumer.models')[$routingKey];
+        $consumer_log->method = $method;
+        $consumer_log->data = $data;
         try {
             $model = '\\Milyoona\\MicroserviceSdk\\Models\\' . config('consumer.models')[$routingKey];
 
@@ -53,13 +58,10 @@ if ( ! function_exists('consumerCrud') )
                 }
             }
         } catch (Exception $exception) {
-            \Milyoona\MicroserviceSdk\Models\ConsumerLog::create([
-                'queue' => config('consumer.queue_name'),
-                'routing_key' => $routingKey,
-                'data' => $data,
-                'exception' => $exception
-            ]);
+            $consumer_log->exception = $exception;
+            $consumer_log->status = 0;
         }
+        $consumer_log->save();
     }
 }
 
