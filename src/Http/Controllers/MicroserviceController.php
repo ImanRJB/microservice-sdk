@@ -17,7 +17,7 @@ class MicroserviceController
             $model_name = str_replace('\\App\Models\\', '', $model);
             $all_models[strtolower($model_name)] = $model::withTrashed()->get()->count();
             $deleted_models[strtolower($model_name)] = $model::onlyTrashed()->get()->count();
-            $updated_models[strtolower($model_name)] = ConsumerLog::whereModel($model_name)->whereStatus(1)->get()->count();
+            $updated_models[strtolower($model_name)] = ConsumerLog::whereModel($model_name)->whereStatus(1)->whereMethod('update')->get()->count();
         }
 
         return response(['consumer_logs' => $consumer_logs, 'consumer_error_logs' => $consumer_error_logs, 'all_models' => $all_models, 'deleted_models' => $deleted_models, 'updated_models' => $updated_models], Response::HTTP_OK);
