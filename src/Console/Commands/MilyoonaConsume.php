@@ -46,6 +46,13 @@ class MilyoonaConsume extends Command
 
             if (!isBase($routingKey)) {
                 consumerCrud($routingKey, $method, $data);
+            } else {
+                $consumer_log = new \Milyoona\MicroserviceSdk\Models\ConsumerLog;
+                $consumer_log->queue = config('consumer.queue_name');
+                $consumer_log->model = config('consumer.models')[$routingKey];
+                $consumer_log->method = $method;
+                $consumer_log->data = $data;
+                $consumer_log->save();
             }
 
             $resolver->acknowledge($message);
