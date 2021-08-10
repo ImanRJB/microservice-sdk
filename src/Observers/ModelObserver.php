@@ -36,7 +36,7 @@ class ModelObserver
     public function created(Model $model)
     {
         try {
-            Amqp::publish($model->getTable(), json_encode( ['method' => 'store', 'data' => $model] ));
+            Amqp::publish($model->getTable(), json_encode( ['method' => 'store', 'data' => $model->getAttributes()] ));
             DB::commit();
         } catch (\Exception $exception) {
             abort(500);
@@ -47,7 +47,7 @@ class ModelObserver
     public function updated(Model $model)
     {
         try {
-            Amqp::publish($model->getTable(), json_encode( ['method' => 'update', 'data' => $model] ));
+            Amqp::publish($model->getTable(), json_encode( ['method' => 'update', 'data' => $model->getAttributes()] ));
             DB::commit();
         } catch (\Exception $exception) {
             abort(500);
@@ -58,7 +58,7 @@ class ModelObserver
     public function deleted(Model $model)
     {
         try {
-            Amqp::publish($model->getTable(), json_encode( ['method' => 'delete', 'data' => $model] ));
+            Amqp::publish($model->getTable(), json_encode( ['method' => 'delete', 'data' => $model->getAttributes()] ));
             DB::commit();
         } catch (\Exception $exception) {
             abort(500);
@@ -69,7 +69,7 @@ class ModelObserver
     public function restored(Model $model)
     {
         try {
-            Amqp::publish($model->getTable(), json_encode( ['method' => 'restore', 'data' => $model] ));
+            Amqp::publish($model->getTable(), json_encode( ['method' => 'restore', 'data' => $model->getAttributes()] ));
             DB::commit();
         } catch (\Exception $exception) {
             abort(500);
@@ -80,7 +80,7 @@ class ModelObserver
     public function forceDeleted(Model $model)
     {
         try {
-            Amqp::publish($model->getTable(), json_encode( ['method' => 'forceDelete', 'data' => $model] ));
+            Amqp::publish($model->getTable(), json_encode( ['method' => 'forceDelete', 'data' => $model->getAttributes()] ));
             DB::commit();
         } catch (\Exception $exception) {
             abort(500);
