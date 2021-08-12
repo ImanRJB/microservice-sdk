@@ -15,11 +15,18 @@ class MicroserviceController
         foreach (getAppModels() as $model) {
             $model = '\\App\\Models\\' . $model;
             $model_name = str_replace('\\App\Models\\', '', $model);
+            $base_models = [];
+
+            $object = new $model;
+            if (isBase($object->getTable())) {
+                $base_models[] = $model_name;
+            }
+
             $all_models[strtolower($model_name)] = $model::withTrashed()->get()->count();
             $deleted_models[strtolower($model_name)] = $model::onlyTrashed()->get()->count();
             $updated_models[strtolower($model_name)] = ConsumerLog::whereModel($model_name)->whereStatus(1)->whereMethod('update')->get()->count();
         }
 
-        return response(['consumer_logs' => $consumer_logs, 'consumer_error_logs' => $consumer_error_logs, 'all_models' => $all_models, 'deleted_models' => $deleted_models, 'updated_models' => $updated_models], Response::HTTP_OK);
+        return response(['base_models' => $base_models, 'consumer_logs' => $consumer_logs, 'consumer_error_logs' => $consumer_error_logs, 'all_models' => $all_models, 'deleted_models' => $deleted_models, 'updated_models' => $updated_models], Response::HTTP_OK);
     }
 }
