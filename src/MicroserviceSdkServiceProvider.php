@@ -124,6 +124,7 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
             $router->pushMiddlewareToGroup('web', \Milyoona\MicroserviceSdk\Middleware\PersianNumber::class);
         } else {
             $this->app->middleware(\Milyoona\MicroserviceSdk\Middleware\PersianNumber::class);
+            $this->app->middleware(\Milyoona\MicroserviceSdk\Middleware\MeasureExecutionTime::class);
         }
 
 
