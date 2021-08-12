@@ -19,7 +19,7 @@ class MicroserviceController
 
             $object = new $model;
             if (isBase($object->getTable())) {
-                $base_models[] = $model_name;
+                $base_models[] = strtolower($model_name);
             }
 
             $all_models[strtolower($model_name)] = $model::withTrashed()->get()->count();
