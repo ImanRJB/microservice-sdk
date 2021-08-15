@@ -11,7 +11,7 @@ class MilyoonaInstall extends Command
      *
      * @var string
      */
-    protected $signature = 'milyoona:install';
+    protected $signature = 'milyoona:install {--f|force}';
 
     /**
      * The console command description.
@@ -37,6 +37,21 @@ class MilyoonaInstall extends Command
      */
     public function handle()
     {
+        if ($this->option('force')) {
+            if( !empty(config('consumer.publish_migration')) ) {
+                foreach(config('consumer.publish_migration') as $migration) {
+                    $migrations = array_diff(scandir(app()->basePath() . '/database/migrations'), array('.', '..', '.gitkeep'));
+                    if(!empty($migrations)) {
+                        foreach($migrations as $item) {
+                            if( strpos($item, rtrim($migration, ':')) != false ) {
+                                unlink(app()->basePath() . '/database/migrations/' . $item);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         $publishedCount = 0;
 
         if( !empty(config('consumer.publish_migration')) ) {
