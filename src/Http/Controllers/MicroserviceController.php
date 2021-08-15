@@ -12,10 +12,12 @@ class MicroserviceController
         $consumer_logs = ConsumerLog::whereStatus(1)->get()->count();
         $consumer_error_logs = ConsumerLog::whereStatus(0)->get()->count();
         $all_models = [];
+        $base_models = [];
+        $updated_models = [];
+        $deleted_models = [];
         foreach (getAppModels() as $model) {
             $model = '\\App\\Models\\' . $model;
             $model_name = str_replace('\\App\Models\\', '', $model);
-            $base_models = [];
 
             $object = new $model;
             if (isBase($object->getTable())) {
