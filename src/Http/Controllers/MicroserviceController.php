@@ -22,8 +22,15 @@ class MicroserviceController
                 $base_models[] = strtolower($model_name);
             }
 
-            $all_models[strtolower($model_name)] = $model::withTrashed()->get()->count();
-            $deleted_models[strtolower($model_name)] = $model::onlyTrashed()->get()->count();
+            if (in_array('Illuminate\Database\Eloquent\SoftDeletes', class_uses($model))) {
+                $all_models[strtolower($model_name)] = $model::withTrashed()->get()->count();
+                $deleted_models[strtolower($model_name)] = $model::onlyTrashed()->get()->count();
+            } else {
+                $all_models[strtolower($model_name)] = $model::get()->count();
+                $deleted_models[strtolower($model_name)] = 0;
+            }
+
+
             $updated_models[strtolower($model_name)] = ConsumerLog::whereModel($model_name)->whereStatus(1)->whereMethod('update')->get()->count();
         }
 
