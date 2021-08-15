@@ -9,7 +9,8 @@
         "bschmitt/laravel-amqp": "^2.0",
         "flipbox/lumen-generator": "^8.2",
         "laravelista/lumen-vendor-publish": "^8.0",
-        "firebase/php-jwt": "^5.4"
+        "firebase/php-jwt": "^5.4",
+        "fruitcake/laravel-cors": "^2.0"
     },
     "authors": [
         {

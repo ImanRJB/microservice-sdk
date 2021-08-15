@@ -10,6 +10,7 @@ use Anik\Form\FormRequestServiceProvider;
 use Bschmitt\Amqp\LumenServiceProvider;
 use Flipbox\LumenGenerator\LumenGeneratorServiceProvider;
 use Illuminate\Translation\TranslationServiceProvider;
+use Fruitcake\Cors\CorsServiceProvider;
 use Milyoona\MicroserviceSdk\Observers\ModelObserver;
 
 class MicroserviceSdkServiceProvider extends ServiceProvider
@@ -63,6 +64,7 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
         $this->app->register(LumenServiceProvider::class);
         $this->app->register(LumenGeneratorServiceProvider::class);
         $this->app->register(FormRequestServiceProvider::class);
+        $this->app->register(CorsServiceProvider::class);
 
         // Register Commands
         if ($this->app->runningInConsole()) {
@@ -81,6 +83,7 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
             __DIR__.'/config/amqp.php' => lumen_config_path('amqp.php'),
             __DIR__.'/config/database.php' => lumen_config_path('database.php'),
             __DIR__.'/config/jwt.php' => lumen_config_path('jwt.php'),
+            __DIR__.'/config/cors.php' => lumen_config_path('cors.php'),
         ], 'microservice-sdk');
 
         // For migrate new migrations
@@ -98,6 +101,9 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
         }
         if (file_exists($this->app->basePath() . '/config/jwt.php')) {
             $this->mergeConfigFrom($this->app->basePath() . '/config/jwt.php', 'jwt');
+        }
+        if (file_exists($this->app->basePath() . '/config/cors.php')) {
+            $this->mergeConfigFrom($this->app->basePath() . '/config/cors.php', 'cors');
         }
 
         // Base migrations
@@ -125,6 +131,7 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
         } else {
             $this->app->middleware(\Milyoona\MicroserviceSdk\Middleware\PersianNumber::class);
             $this->app->middleware(\Milyoona\MicroserviceSdk\Middleware\MeasureExecutionTime::class);
+            $this->app->middleware(\Fruitcake\Cors\HandleCors::class);
         }
 
 
