@@ -19,8 +19,7 @@ class MicroserviceController
             $model = '\\App\\Models\\' . $model;
             $model_name = str_replace('\\App\Models\\', '', $model);
 
-            $object = new $model;
-            if (isBase($object->getTable())) {
+            if (isBase(array_search($model_name, config('consumer.models')))) {
                 $base_models[] = strtolower($model_name);
             }
 
