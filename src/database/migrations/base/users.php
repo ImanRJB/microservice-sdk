@@ -58,6 +58,11 @@ class CreateUsersTable extends Migration
             $table->timestamp('profile_verified_at')->nullable();
             $table->timestamp('shaparak_verified_at')->nullable();
             $table->timestamp('register_submitted_at')->nullable();
+
+            $table->longText('address')->nullable();
+            $table->integer('zip_code')->nullable();
+            $table->string('phone')->nullable();
+
             $table->softDeletes();
             $table->timestamps();
         });
