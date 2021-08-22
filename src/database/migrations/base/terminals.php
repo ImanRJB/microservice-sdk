@@ -46,6 +46,14 @@ class CreateTerminalsTable extends Migration
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
             }
+
+            if(checkRelation('ibans')) {
+                $table->foreign('iban_iban')
+                    ->references('iban')
+                    ->on('ibans')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
+            }
         });
     }
 
