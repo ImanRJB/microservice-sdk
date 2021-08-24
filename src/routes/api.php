@@ -12,4 +12,5 @@
 */
 
 $router->get('status', ['uses' => 'MicroserviceController@index']);
+$router->get('service/status', ['uses' => 'MicroserviceController@status']);
 

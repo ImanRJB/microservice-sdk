@@ -37,4 +37,9 @@ class MicroserviceController
 
         return response(['base_models' => $base_models, 'consumer_logs' => $consumer_logs, 'consumer_error_logs' => $consumer_error_logs, 'all_models' => $all_models, 'deleted_models' => $deleted_models, 'updated_models' => $updated_models], Response::HTTP_OK);
     }
+
+    public function status()
+    {
+        return response('', Response::HTTP_OK);
+    }
 }
