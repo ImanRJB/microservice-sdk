@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class DashboardChart extends Model
 {
     protected $guarded = [];
+
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
 }
 

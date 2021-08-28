@@ -8,5 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Terminal extends Model
 {
     use SoftDeletes;
+
     protected $guarded = [];
+
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+        'rejected_at',
+        'displayed_at',
+    ];
 }

@@ -8,6 +8,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Withdraw extends Model
 {
     use SoftDeletes;
+
     protected $guarded = [];
+
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+        'completed_at',
+        'uploaded_at',
+    ];
 }
 

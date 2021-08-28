@@ -11,4 +11,10 @@ class Message extends Model
 
     protected $table = 'ticket_messages';
     protected $guarded = [];
+
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
 }

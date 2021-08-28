@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class ShaparakTerminalRequest extends Model
 {
     protected $guarded = [];
+
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
 }

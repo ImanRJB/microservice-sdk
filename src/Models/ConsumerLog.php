@@ -8,4 +8,9 @@ class ConsumerLog extends Model
 {
     protected $guarded = [];
     protected $casts = ['data' => 'json'];
+
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
 }
