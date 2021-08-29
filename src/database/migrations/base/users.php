@@ -50,6 +50,7 @@ class CreateUsersTable extends Migration
             $table->string('national_card_photo')->nullable();
             $table->string('kyc_photo')->nullable();
             $table->string('introduction_photo')->nullable();
+            $table->string('official_advertisement_photo')->nullable();
 
             $table->timestamp('otp_expired_at')->nullable();
             $table->timestamp('email_verified_at')->nullable();
