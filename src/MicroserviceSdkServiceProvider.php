@@ -7,7 +7,6 @@ use Firebase\JWT\JWT;
 use Illuminate\Support\ServiceProvider;
 //Register depends
 use Anik\Form\FormRequestServiceProvider;
-use Bschmitt\Amqp\LumenServiceProvider;
 use Flipbox\LumenGenerator\LumenGeneratorServiceProvider;
 use Illuminate\Translation\TranslationServiceProvider;
 use Fruitcake\Cors\CorsServiceProvider;
@@ -61,14 +60,12 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
     public function register()
     {
         // Register depends packages service providers
-        $this->app->register(LumenServiceProvider::class);
         $this->app->register(LumenGeneratorServiceProvider::class);
         $this->app->register(FormRequestServiceProvider::class);
         $this->app->register(CorsServiceProvider::class);
 
         // Configures
         $this->publishes([
-            __DIR__.'/config/amqp.php' => lumen_config_path('amqp.php'),
             __DIR__.'/config/database.php' => lumen_config_path('database.php'),
             __DIR__.'/config/jwt.php' => lumen_config_path('jwt.php'),
             __DIR__.'/config/cors.php' => lumen_config_path('cors.php'),
@@ -76,9 +73,6 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
 
 
         // For load config files
-        if (file_exists($this->app->basePath() . '/config/amqp.php')) {
-            $this->mergeConfigFrom($this->app->basePath() . '/config/amqp.php', 'amqp');
-        }
         if (file_exists($this->app->basePath() . '/config/database.php')) {
             $this->mergeConfigFrom($this->app->basePath() . '/config/database.php', 'database');
         }
