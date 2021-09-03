@@ -11,6 +11,7 @@ use Bschmitt\Amqp\LumenServiceProvider;
 use Flipbox\LumenGenerator\LumenGeneratorServiceProvider;
 use Illuminate\Translation\TranslationServiceProvider;
 use Fruitcake\Cors\CorsServiceProvider;
+use Illuminate\Redis\RedisServiceProvider;
 
 class MicroserviceSdkServiceProvider extends ServiceProvider
 {
@@ -64,6 +65,7 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
         $this->app->register(LumenGeneratorServiceProvider::class);
         $this->app->register(FormRequestServiceProvider::class);
         $this->app->register(CorsServiceProvider::class);
+        $this->app->register(RedisServiceProvider::class);
 
         // Configures
         $this->publishes([
