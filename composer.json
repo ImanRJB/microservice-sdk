@@ -10,7 +10,8 @@
         "flipbox/lumen-generator": "^8.2",
         "laravelista/lumen-vendor-publish": "^8.0",
         "firebase/php-jwt": "^5.4",
-        "fruitcake/laravel-cors": "^2.0"
+        "fruitcake/laravel-cors": "^2.0",
+        "predis/predis": "^1.1"
     },
     "authors": [
         {
