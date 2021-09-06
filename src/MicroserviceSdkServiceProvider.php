@@ -69,7 +69,7 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
         $this->app->register(RedisServiceProvider::class);
 
         //Services
-        $this->app->alias('ModelRepository', 'Milyoona\MicroserviceSdk\Services\ModelRepository\ModelRepository');
+        $this->app->alias(\Milyoona\MicroserviceSdk\Services\ModelRepository\ModelRepository::class, 'ModelRepository');
         $this->app->register(ModelRepositoryServiceProvider::class);
 
         // Configures
