@@ -4,11 +4,6 @@ namespace Milyoona\MicroserviceSdk\Services\ModelRepository;
 
 class ModelRepositoryService
 {
-    public function __construct()
-    {
-
-    }
-
     public function getRecord($model, $query, $relations = [])
     {
         $model = '\\App\\Models\\' . $model;
