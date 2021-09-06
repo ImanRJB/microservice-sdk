@@ -18,7 +18,7 @@ class ModelRepositoryService
     public function getRecords($model, $query, $relations = [])
     {
         $model = '\\App\\Models\\' . $model;
-        return $model::with($model, $relations)->where($query)->first();
+        return $model::with($relations)->where($query)->get();
     }
 
     public function storeRecord($model, $data)
