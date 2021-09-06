@@ -21,4 +21,24 @@ class Transaction extends Model
         'verified_at',
         'paid_at',
     ];
+
+    public function business()
+    {
+        return $this->belongsTo(Business::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function withdraw()
+    {
+        return $this->belongsTo(Withdraw::class);
+    }
+
+    public function balance()
+    {
+        return $this->hasOne(Balance::class);
+    }
 }

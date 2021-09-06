@@ -17,4 +17,14 @@ class Discount extends Model
         'deleted_at',
         'expires_in',
     ];
+
+    public function business()
+    {
+        return $this->belongsTo(Business::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

@@ -12,5 +12,10 @@ class Balance extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function transaction()
+    {
+        return $this->belongsTo(Transaction::class);
+    }
 }
 

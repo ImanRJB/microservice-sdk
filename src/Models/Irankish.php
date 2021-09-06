@@ -14,4 +14,14 @@ class Irankish extends Model
         'psp_verified_at',
         'rejected_at',
     ];
+
+    public function terminal()
+    {
+        return $this->belongsTo(Terminal::class);
+    }
+
+    public function shaparakTerminalRequest()
+    {
+        return $this->belongsTo(ShaparakTerminalRequest::class);
+    }
 }

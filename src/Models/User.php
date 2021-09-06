@@ -24,4 +24,24 @@ class User extends Model
         'shaparak_verified_at',
         'register_submitted_at',
     ];
+
+    public function shaparakUserRequests()
+    {
+        return $this->hasMany(ShaparakUserRequest::class);
+    }
+
+    public function businesses()
+    {
+        return $this->hasMany(Business::class);
+    }
+
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

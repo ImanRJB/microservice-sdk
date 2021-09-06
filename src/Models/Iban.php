@@ -17,5 +17,20 @@ class Iban extends Model
         'deleted_at',
         'verified_at',
     ];
+
+    public function business()
+    {
+        return $this->belongsTo(Business::class);
+    }
+
+    public function terminals()
+    {
+        return $this->hasMany(Terminal::class);
+    }
+
+    public function sharings()
+    {
+        return $this->hasMany(Sharing::class);
+    }
 }
 

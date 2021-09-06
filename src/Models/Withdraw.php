@@ -18,5 +18,20 @@ class Withdraw extends Model
         'completed_at',
         'uploaded_at',
     ];
+
+    public function business()
+    {
+        return $this->belongsTo(Business::class);
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function withdrawRecords()
+    {
+        return $this->hasMany(WithdrawRecord::class);
+    }
 }
 

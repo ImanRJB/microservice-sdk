@@ -16,4 +16,14 @@ class Blog extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class);
+    }
+
+    public function blogCategory()
+    {
+        return $this->belongsTo(BlogCategory::class);
+    }
 }

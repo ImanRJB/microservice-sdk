@@ -12,5 +12,10 @@ class JobCategory extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function businesses()
+    {
+        return $this->hasMany(Business::class);
+    }
 }
 

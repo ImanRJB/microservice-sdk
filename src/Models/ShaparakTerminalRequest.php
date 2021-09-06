@@ -12,4 +12,14 @@ class ShaparakTerminalRequest extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function terminal()
+    {
+        return $this->belongsTo(Terminal::class);
+    }
+
+    public function irankishs()
+    {
+        return $this->hasOne(Irankish::class);
+    }
 }

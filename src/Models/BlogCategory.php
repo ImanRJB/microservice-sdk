@@ -16,4 +16,9 @@ class BlogCategory extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class);
+    }
 }

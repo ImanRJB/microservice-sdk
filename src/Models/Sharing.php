@@ -12,5 +12,15 @@ class Sharing extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function business()
+    {
+        return $this->belongsTo(Business::class);
+    }
+
+    public function iban()
+    {
+        return $this->belongsTo(Iban::class);
+    }
 }
 

@@ -13,4 +13,9 @@ class WithdrawRecord extends Model
         'updated_at',
         'cycle_date',
     ];
+
+    public function withdraw()
+    {
+        return $this->belongsTo(Withdraw::class);
+    }
 }
