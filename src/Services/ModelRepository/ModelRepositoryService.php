@@ -2,18 +2,22 @@
 
 namespace Milyoona\MicroserviceSdk\Services\ModelRepository;
 
+use Illuminate\Database\Eloquent\Model;
+
 class ModelRepositoryService
 {
-    public function getRecord($model, $query, $relations = [])
+    public function getRecord($model, $query, $selection = ['*'], $relations = [])
     {
+        $selection = $selection == [] ? ['*'] : $selection;
         $model = '\\App\\Models\\' . $model;
-        return $model::with($relations)->where($query)->first();
+        return $model::select($selection)->with($relations)->where($query)->first();
     }
 
-    public function getRecords($model, $query, $relations = [])
+    public function getRecords($model, $query, $selection = ['*'], $relations = [])
     {
+        $selection = $selection == [] ? ['*'] : $selection;
         $model = '\\App\\Models\\' . $model;
-        return $model::with($relations)->where($query)->get();
+        return $model::select($selection)->with($relations)->where($query)->get();
     }
 
     public function storeRecord($model, $data)
@@ -22,11 +26,9 @@ class ModelRepositoryService
         return $model::create($data);
     }
 
-    public function updateRecord($model, $query, $data)
+    public function updateRecord(Model $object, $data)
     {
-        $model = '\\App\\Models\\' . $model;
-        $record = $model::where($query)->first();
-        $record->update($data);
-        return $record;
+        $object->update($data);
+        return $object;
     }
 }

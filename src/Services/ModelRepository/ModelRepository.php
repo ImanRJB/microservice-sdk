@@ -5,10 +5,10 @@ namespace Milyoona\MicroserviceSdk\Services\ModelRepository;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static getRecord($model, $query, $relations = [])
- * @method static getRecords($model, $query, $relations = [])
+ * @method static getRecord($model, $query, $selection = [], $relations = [])
+ * @method static getRecords($model, $query, $selection = [], $relations = [])
  * @method static storeRecord($model, $data)
- * @method static updateRecord($model, $query, $data)
+ * @method static updateRecord(\Illuminate\Database\Eloquent\Model $object, $data)
  */
 
 class ModelRepository extends Facade
