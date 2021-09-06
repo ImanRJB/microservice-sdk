@@ -12,6 +12,7 @@ use Flipbox\LumenGenerator\LumenGeneratorServiceProvider;
 use Illuminate\Translation\TranslationServiceProvider;
 use Fruitcake\Cors\CorsServiceProvider;
 use Illuminate\Redis\RedisServiceProvider;
+use Milyoona\MicroserviceSdk\Services\ModelRepository\ModelRepositoryServiceProvider;
 
 class MicroserviceSdkServiceProvider extends ServiceProvider
 {
@@ -66,6 +67,10 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
         $this->app->register(FormRequestServiceProvider::class);
         $this->app->register(CorsServiceProvider::class);
         $this->app->register(RedisServiceProvider::class);
+
+        //Services
+        $this->app->alias('ModelRepository', 'Milyoona\MicroserviceSdk\Services\ModelRepository\ModelRepository');
+        $this->app->register(ModelRepositoryServiceProvider::class);
 
         // Configures
         $this->publishes([
