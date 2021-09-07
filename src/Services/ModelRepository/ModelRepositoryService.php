@@ -48,6 +48,23 @@ class ModelRepositoryService
         return $model;
     }
 
+    public function forceStoreRelationRecord($relation, $data)
+    {
+        $model = get_class($relation->getRelated());
+        $model = new $model;
+
+        $foreign_key = explode('.', array_values((array)$relation)[0]);
+        $foreign_key = end($foreign_key);
+
+        $model->$foreign_key = $relation->getParent()->id;
+
+        foreach($data as $key => $value) {
+            $model->$key = $value;
+        }
+        $model->save();
+        return $model;
+    }
+
     public function forceUpdateRecord(Model $object, $data)
     {
         foreach($data as $key => $value) {
