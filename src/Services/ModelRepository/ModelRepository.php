@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static getRecord($model, $query, $selection = [], $relations = [])
  * @method static getRecords($model, $query, $selection = [], $relations = [])
  * @method static storeRecord($model, $data)
+ * @method static storeRelationRecord($relation, $data)
  * @method static updateRecord(\Illuminate\Database\Eloquent\Model $object, $data)
  */
 

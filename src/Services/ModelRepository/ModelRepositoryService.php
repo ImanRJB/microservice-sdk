@@ -26,6 +26,11 @@ class ModelRepositoryService
         return $model::create($data);
     }
 
+    public function storeRelationRecord($relation, $data)
+    {
+        return $relation->create($data);
+    }
+
     public function updateRecord(Model $object, $data)
     {
         $object->update($data);
