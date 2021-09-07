@@ -4,6 +4,9 @@ namespace Milyoona\MicroserviceSdk\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Ticket;
+use App\Models\User;
+use App\Models\Admin;
 
 class Message extends Model
 {

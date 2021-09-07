@@ -3,6 +3,8 @@
 namespace Milyoona\MicroserviceSdk\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Terminal;
+use App\Models\Irankish;
 
 class ShaparakTerminalRequest extends Model
 {

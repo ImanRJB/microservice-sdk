@@ -3,6 +3,7 @@
 namespace Milyoona\MicroserviceSdk\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Business;
 
 class DashboardChart extends Model
 {

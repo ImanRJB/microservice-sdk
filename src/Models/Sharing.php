@@ -3,6 +3,8 @@
 namespace Milyoona\MicroserviceSdk\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Business;
+use App\Models\Iban;
 
 class Sharing extends Model
 {

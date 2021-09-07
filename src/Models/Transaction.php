@@ -4,6 +4,10 @@ namespace Milyoona\MicroserviceSdk\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Business;
+use App\Models\Product;
+use App\Models\Withdraw;
+use App\Models\Balance;
 
 class Transaction extends Model
 {

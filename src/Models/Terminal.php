@@ -4,6 +4,10 @@ namespace Milyoona\MicroserviceSdk\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Business;
+use App\Models\Iban;
+use App\Models\Irankish;
+use App\Models\ShaparakTerminalRequest;
 
 class Terminal extends Model
 {

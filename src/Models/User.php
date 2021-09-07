@@ -4,6 +4,10 @@ namespace Milyoona\MicroserviceSdk\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\ShaparakUserRequest;
+use App\Models\Business;
+use App\Models\Ticket;
+use App\Models\Message;
 
 class User extends Model
 {

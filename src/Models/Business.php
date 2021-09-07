@@ -2,13 +2,24 @@
 
 namespace Milyoona\MicroserviceSdk\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\User;
+use App\Models\JobCategory;
+use App\Models\Province;
+use App\Models\Terminal;
+use App\Models\Iban;
+use App\Models\Product;
+use App\Models\Discount;
+use App\Models\Withdraw;
+use App\Models\Sharing;
+use App\Models\Transaction;
+use App\Models\DashboardChart;
+use App\Models\ShaparakTaxRequest;
 
 class Business extends Model
 {
-    use HasFactory, SoftDeletes;
+    use SoftDeletes;
 
     public function user()
     {

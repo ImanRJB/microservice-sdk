@@ -3,6 +3,9 @@
 namespace Milyoona\MicroserviceSdk\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
+use App\Models\Department;
+use App\Models\Message;
 
 class Ticket extends Model
 {

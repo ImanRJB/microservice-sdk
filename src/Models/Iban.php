@@ -4,6 +4,9 @@ namespace Milyoona\MicroserviceSdk\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Business;
+use App\Models\Terminal;
+use App\Models\Sharing;
 
 class Iban extends Model
 {
