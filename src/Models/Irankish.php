@@ -8,7 +8,9 @@ use App\Models\ShaparakTerminalRequest;
 
 class Irankish extends Model
 {
-    protected $guarded = [];
+    protected $visible = [];
+
+    protected $fillable = [];
 
     protected $dates = [
         'created_at',

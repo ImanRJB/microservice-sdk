@@ -13,7 +13,20 @@ class Terminal extends Model
 {
     use SoftDeletes;
 
-    protected $guarded = [];
+    protected $hidden = [
+        'business_id',
+        'fee_percent',
+        'max_fee',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+    protected $fillable = [
+        'ip',
+        'settlement_period',
+        'fee_payer'
+    ];
 
     protected $dates = [
         'created_at',

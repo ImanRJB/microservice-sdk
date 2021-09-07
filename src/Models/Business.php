@@ -21,6 +21,37 @@ class Business extends Model
 {
     use SoftDeletes;
 
+    protected $hidden = [
+        'user_id',
+        'job_category_id',
+        'province_id',
+        'name_en',
+        'com_name_en',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+    protected $guarded = [
+        'id',
+        'user_id',
+        'province_id',
+        'name_en',
+        'personal',
+        'com_name_en',
+        'balance',
+        'block',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

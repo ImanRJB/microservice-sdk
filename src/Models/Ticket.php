@@ -9,7 +9,14 @@ use App\Models\Message;
 
 class Ticket extends Model
 {
-    protected $guarded = [];
+    protected $hidden = [
+        'user_id',
+        'department_id',
+    ];
+
+    protected $fillable = [
+        'title'
+    ];
 
     protected $dates = [
         'created_at',

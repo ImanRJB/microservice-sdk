@@ -7,7 +7,9 @@ use App\Models\User;
 
 class ShaparakUserRequest extends Model
 {
-    protected $guarded = [];
+    protected $visible = [];
+
+    protected $fillable = [];
 
     protected $dates = [
         'created_at',

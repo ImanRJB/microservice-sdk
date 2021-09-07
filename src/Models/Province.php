@@ -2,13 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Business;
 
 class Province extends Model
 {
-    use HasFactory;
+    protected $visible = [];
+
+    protected $fillable = [];
+
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
 
     public function businesses()
     {

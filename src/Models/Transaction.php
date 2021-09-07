@@ -13,7 +13,32 @@ class Transaction extends Model
 {
     use SoftDeletes;
 
-    protected $guarded = [];
+    protected $hidden = [
+        'business_id',
+        'product_id',
+        'withdraw_id',
+        'token',
+        'psp_name',
+        'psp_execution_time',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+    protected $fillable = [
+        'amount',
+        'mobile',
+        'national_code',
+        'callback_url',
+        'card_no',
+        'description',
+        'note',
+        'order_id',
+        'customer_name',
+        'customer_email',
+        'customer_mobile',
+        'customer_note',
+    ];
 
     protected $dates = [
         'created_at',

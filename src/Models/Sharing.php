@@ -8,7 +8,19 @@ use App\Models\Iban;
 
 class Sharing extends Model
 {
-    protected $guarded = [];
+    protected $hidden = [
+        'business_id',
+        'created_at',
+        'updated_at',
+    ];
+
+    protected $guarded = [
+        'id',
+        'business_id',
+        'iban_id',
+        'created_at',
+        'updated_at',
+    ];
 
     protected $dates = [
         'created_at',

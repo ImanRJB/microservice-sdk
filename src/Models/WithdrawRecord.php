@@ -7,7 +7,9 @@ use App\Models\Withdraw;
 
 class WithdrawRecord extends Model
 {
-    protected $guarded = [];
+    protected $visible = [];
+
+    protected $fillable = [];
 
     protected $dates = [
         'created_at',

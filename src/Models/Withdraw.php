@@ -12,7 +12,14 @@ class Withdraw extends Model
 {
     use SoftDeletes;
 
-    protected $guarded = [];
+    protected $hidden = [
+        'business_id',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+    protected $fillable = [];
 
     protected $dates = [
         'created_at',

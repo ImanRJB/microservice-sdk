@@ -9,7 +9,11 @@ class Document extends Model
 {
     use SoftDeletes;
 
-    protected $guarded = [];
+    protected $visible = [
+        'body',
+    ];
+
+    protected $fillable = [];
 
     protected $dates = [
         'created_at',

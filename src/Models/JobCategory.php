@@ -7,7 +7,12 @@ use App\Models\Business;
 
 class JobCategory extends Model
 {
-    protected $guarded = [];
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
+
+    protected $fillable = [];
 
     protected $dates = [
         'created_at',

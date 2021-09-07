@@ -7,7 +7,9 @@ use App\Models\Business;
 
 class ShaparakTaxRequest extends Model
 {
-    protected $guarded = [];
+    protected $visible = [];
+
+    protected $fillable = [];
 
     protected $dates = [
         'created_at',

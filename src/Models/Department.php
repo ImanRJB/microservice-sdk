@@ -8,7 +8,14 @@ use App\Models\Ticket;
 
 class Department extends Model
 {
-    protected $guarded = [];
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
+
+    protected $guarded = [
+        'id'
+    ];
 
     protected $dates = [
         'created_at',

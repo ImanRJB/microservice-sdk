@@ -12,7 +12,21 @@ class Product extends Model
 {
     use SoftDeletes;
 
-    protected $guarded = [];
+    protected $hidden = [
+        'business_id',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+    protected $guarded = [
+        'id',
+        'business_id',
+        'product_no',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
 
     protected $dates = [
         'created_at',

@@ -13,7 +13,28 @@ class User extends Model
 {
     use SoftDeletes;
 
-    protected $guarded = [];
+    protected $hidden = [
+        'first_name_en',
+        'last_name_en',
+        'father_name_en',
+        'gender',
+        'residency_type',
+        'vital_status',
+        'block',
+        'otp',
+        'national_card_photo',
+        'otp_expires_in',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+    protected $fillable = [
+        'mobile',
+        'national_code',
+        'birth_date',
+        'national_card_photo',
+    ];
 
     protected $dates = [
         'created_at',

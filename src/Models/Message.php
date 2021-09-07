@@ -13,7 +13,13 @@ class Message extends Model
     use SoftDeletes;
 
     protected $table = 'ticket_messages';
-    protected $guarded = [];
+
+    protected $hidden = [];
+
+    protected $fillable = [
+        'body',
+        'attach',
+    ];
 
     protected $dates = [
         'created_at',
