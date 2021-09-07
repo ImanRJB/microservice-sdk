@@ -40,6 +40,7 @@ class ModelRepositoryService
     public function forceStoreRecord($model, $data)
     {
         $model = '\\App\\Models\\' . $model;
+        $model = new $model;
         foreach($data as $key => $value) {
             $model->$key = $value;
         }
