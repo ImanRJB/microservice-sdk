@@ -36,4 +36,23 @@ class ModelRepositoryService
         $object->update($data);
         return $object;
     }
+
+    public function forceStoreRecord($model, $data)
+    {
+        $model = '\\App\\Models\\' . $model;
+        foreach($data as $key => $value) {
+            $model->$key = $value;
+        }
+        $model->save();
+        return $model;
+    }
+
+    public function forceUpdateRecord(Model $object, $data)
+    {
+        foreach($data as $key => $value) {
+            $object->$key = $value;
+        }
+        $object->save();
+        return $object;
+    }
 }
