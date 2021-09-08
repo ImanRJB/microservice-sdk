@@ -135,7 +135,6 @@ return array(
         'time_type' => 'نوع زمان نمودار',
         'register_date' => 'تاریخ تاسیس',
         'national_legal_code' => 'شناسه ملی',
-        'phone_code' => 'کد شهر',
         'national_card_photo' => 'تصویر کارت ملی',
         'kyc_photo' => 'برگه احراز هویت',
         'introduction_photo' => 'معرفی نامه شرکت',
@@ -145,5 +144,10 @@ return array(
         'ip' => 'آی‌پی',
         'wage_payer' => 'نوع کسر کارمزد',
         'logo' => 'لوگو',
+        'business_type' => 'نوع کسب و کار',
+        'name_fa' => 'نام کسب و کار',
+        'job_category_id' => 'حوزه کسب و کار',
+        'com_name_fa' => 'نام شرکت',
+        'tax_payer_code' => 'کد رهگیری مالیاتی',
     ]
 );

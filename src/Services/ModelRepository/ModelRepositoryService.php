@@ -13,7 +13,7 @@ class ModelRepositoryService
         return $model::select($selection)->with($relations)->where($query)->first();
     }
 
-    public function getRecords($model, $query, $selection = ['*'], $relations = [])
+    public function getRecords($model, $query = [], $selection = ['*'], $relations = [])
     {
         $selection = $selection == [] ? ['*'] : $selection;
         $model = '\\App\\Models\\' . $model;
