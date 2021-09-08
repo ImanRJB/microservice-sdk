@@ -34,6 +34,7 @@ class Terminal extends Model
         'deleted_at',
         'rejected_at',
         'displayed_at',
+        'verified_at',
     ];
 
     public function business()

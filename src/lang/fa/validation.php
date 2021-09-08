@@ -149,5 +149,6 @@ return array(
         'job_category_id' => 'حوزه کسب و کار',
         'com_name_fa' => 'نام شرکت',
         'tax_payer_code' => 'کد رهگیری مالیاتی',
+        'uuid' => 'شناسه کسب و کار',
     ]
 );
