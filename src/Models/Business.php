@@ -39,7 +39,6 @@ class Business extends Model
         'name_en',
         'personal',
         'com_name_en',
-        'balance',
         'block',
         'created_at',
         'updated_at',
