@@ -12,6 +12,7 @@ use App\Models\Iban;
 use App\Models\Product;
 use App\Models\Discount;
 use App\Models\Withdraw;
+use App\Models\Balance;
 use App\Models\Sharing;
 use App\Models\Transaction;
 use App\Models\DashboardChart;
@@ -91,6 +92,11 @@ class Business extends Model
     public function withdraws()
     {
         return $this->hasMany(Withdraw::class);
+    }
+
+    public function balances()
+    {
+        return $this->hasMany(Balance::class);
     }
 
     public function sharings()

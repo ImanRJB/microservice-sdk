@@ -3,7 +3,7 @@
 namespace Milyoona\MicroserviceSdk\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Transaction;
+use App\Models\Business;
 
 class Balance extends Model
 {
@@ -16,9 +16,9 @@ class Balance extends Model
         'updated_at',
     ];
 
-    public function transaction()
+    public function business()
     {
-        return $this->belongsTo(Transaction::class);
+        return $this->belongsTo(Business::class);
     }
 }
 

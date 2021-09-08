@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Business;
 use App\Models\Product;
-use App\Models\Withdraw;
-use App\Models\Balance;
 
 class Transaction extends Model
 {
@@ -16,7 +14,6 @@ class Transaction extends Model
     protected $hidden = [
         'business_id',
         'product_id',
-        'withdraw_id',
         'token',
         'psp_name',
         'psp_execution_time',
@@ -59,15 +56,5 @@ class Transaction extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
-    }
-
-    public function withdraw()
-    {
-        return $this->belongsTo(Withdraw::class);
-    }
-
-    public function balance()
-    {
-        return $this->hasOne(Balance::class);
     }
 }
