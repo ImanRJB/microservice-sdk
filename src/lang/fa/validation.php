@@ -142,7 +142,7 @@ return array(
         'website' => 'وبسایت',
         'settlement_period' => 'دوره تسویه',
         'ip' => 'آی‌پی',
-        'wage_payer' => 'نوع کسر کارمزد',
+        'fee_payer' => 'نوع کسر کارمزد',
         'logo' => 'لوگو',
         'business_type' => 'نوع کسب و کار',
         'name_fa' => 'نام کسب و کار',
