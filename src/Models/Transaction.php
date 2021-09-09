@@ -4,7 +4,7 @@ namespace Milyoona\MicroserviceSdk\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\Business;
+use App\Models\Terminal;
 use App\Models\Product;
 
 class Transaction extends Model
@@ -48,9 +48,9 @@ class Transaction extends Model
         'paid_at',
     ];
 
-    public function business()
+    public function terminal()
     {
-        return $this->belongsTo(Business::class);
+        return $this->belongsTo(Terminal::class);
     }
 
     public function product()
