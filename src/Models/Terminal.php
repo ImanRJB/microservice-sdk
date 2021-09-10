@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Business;
 use App\Models\Iban;
+use App\Models\TerminalDashboard;
 use App\Models\Irankish;
 use App\Models\ShaparakTerminalRequest;
 
@@ -45,6 +46,11 @@ class Terminal extends Model
     public function iban()
     {
         return $this->belongsTo(Iban::class);
+    }
+
+    public function terminalDashboard()
+    {
+        return $this->hasOne(TerminalDashboard::class);
     }
 
     public function irankish()

@@ -109,11 +109,6 @@ class Business extends Model
         return $this->hasMany(Transaction::class);
     }
 
-    public function dashboardCharts()
-    {
-        return $this->hasMany(DashboardChart::class);
-    }
-
     public function shaparakTaxRequests()
     {
         return $this->hasMany(ShaparakTaxRequest::class);

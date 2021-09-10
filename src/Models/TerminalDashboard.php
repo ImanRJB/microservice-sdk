@@ -3,9 +3,9 @@
 namespace Milyoona\MicroserviceSdk\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Business;
+use App\Models\Terminal;
 
-class DashboardChart extends Model
+class TerminalDashboard extends Model
 {
     protected $hidden = [
         'id',
@@ -22,9 +22,9 @@ class DashboardChart extends Model
         'updated_at',
     ];
 
-    public function business()
+    public function terminal()
     {
-        return $this->belongsTo(Business::class);
+        return $this->belongsTo(Terminal::class);
     }
 }
 
