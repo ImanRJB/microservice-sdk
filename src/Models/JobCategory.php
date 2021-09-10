@@ -14,11 +14,6 @@ class JobCategory extends Model
 
     protected $fillable = [];
 
-    protected $dates = [
-        'created_at',
-        'updated_at',
-    ];
-
     public function businesses()
     {
         return $this->hasMany(Business::class);

@@ -17,11 +17,6 @@ class Department extends Model
         'id'
     ];
 
-    protected $dates = [
-        'created_at',
-        'updated_at',
-    ];
-
     public function admins()
     {
         return $this->belongsToMany(Admin::class);

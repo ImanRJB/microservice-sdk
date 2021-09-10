@@ -22,11 +22,6 @@ class Sharing extends Model
         'updated_at',
     ];
 
-    protected $dates = [
-        'created_at',
-        'updated_at',
-    ];
-
     public function business()
     {
         return $this->belongsTo(Business::class);

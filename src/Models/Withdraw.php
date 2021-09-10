@@ -20,14 +20,6 @@ class Withdraw extends Model
 
     protected $fillable = [];
 
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'deleted_at',
-        'completed_at',
-        'uploaded_at',
-    ];
-
     public function terminal()
     {
         return $this->belongsTo(Terminal::class);

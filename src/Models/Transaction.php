@@ -37,17 +37,6 @@ class Transaction extends Model
         'customer_note',
     ];
 
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'deleted_at',
-        'initiated_at',
-        'expired_at',
-        'used_at',
-        'verified_at',
-        'paid_at',
-    ];
-
     public function terminal()
     {
         return $this->belongsTo(Terminal::class);

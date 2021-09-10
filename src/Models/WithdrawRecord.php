@@ -11,12 +11,6 @@ class WithdrawRecord extends Model
 
     protected $fillable = [];
 
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'cycle_date',
-    ];
-
     public function withdraw()
     {
         return $this->belongsTo(Withdraw::class);

@@ -17,11 +17,6 @@ class TerminalDashboard extends Model
 
     protected $fillable = [];
 
-    protected $dates = [
-        'created_at',
-        'updated_at',
-    ];
-
     public function terminal()
     {
         return $this->belongsTo(Terminal::class);

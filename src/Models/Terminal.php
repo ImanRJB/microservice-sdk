@@ -29,15 +29,6 @@ class Terminal extends Model
         'fee_payer'
     ];
 
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'deleted_at',
-        'rejected_at',
-        'displayed_at',
-        'verified_at',
-    ];
-
     public function business()
     {
         return $this->belongsTo(Business::class);

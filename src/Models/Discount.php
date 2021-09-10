@@ -27,13 +27,6 @@ class Discount extends Model
         'deleted_at',
     ];
 
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'deleted_at',
-        'expires_in',
-    ];
-
     public function business()
     {
         return $this->belongsTo(Business::class);

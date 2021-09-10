@@ -12,13 +12,6 @@ class Irankish extends Model
 
     protected $fillable = [];
 
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'psp_verified_at',
-        'rejected_at',
-    ];
-
     public function terminal()
     {
         return $this->belongsTo(Terminal::class);
