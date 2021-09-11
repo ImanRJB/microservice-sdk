@@ -22,7 +22,6 @@ class User extends Model
         'vital_status',
         'block',
         'otp',
-        'national_card_photo',
         'otp_expires_in',
         'created_at',
         'updated_at',
