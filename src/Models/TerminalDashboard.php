@@ -3,7 +3,7 @@
 namespace Milyoona\MicroserviceSdk\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Terminal;
+use App\Models\Business;
 
 class TerminalDashboard extends Model
 {
@@ -17,9 +17,9 @@ class TerminalDashboard extends Model
 
     protected $fillable = [];
 
-    public function terminal()
+    public function business()
     {
-        return $this->belongsTo(Terminal::class);
+        return $this->belongsTo(Business::class);
     }
 }
 
