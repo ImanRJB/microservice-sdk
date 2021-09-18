@@ -150,5 +150,9 @@ return array(
         'com_name_fa' => 'نام شرکت',
         'tax_payer_code' => 'کد رهگیری مالیاتی',
         'uuid' => 'شناسه کسب و کار',
+        'title' => 'عنوان',
+        'amount' => 'مبلغ',
+        'success_callback_url' => 'لینک برگشت موفقیت آمیز',
+        'failure_callback_url' => 'لینک برگشت ناموفق',
     ]
 );
