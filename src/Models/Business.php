@@ -60,9 +60,9 @@ class Business extends Model
         return $this->belongsTo(Province::class);
     }
 
-    public function terminals()
+    public function terminal()
     {
-        return $this->hasMany(Terminal::class);
+        return $this->hasOne(Terminal::class);
     }
 
     public function ibans()
