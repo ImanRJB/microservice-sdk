@@ -77,6 +77,7 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
             __DIR__.'/config/database.php' => lumen_config_path('database.php'),
             __DIR__.'/config/jwt.php' => lumen_config_path('jwt.php'),
             __DIR__.'/config/cors.php' => lumen_config_path('cors.php'),
+            __DIR__.'/config/horizon.php' => lumen_config_path('horizon.php'),
         ], 'microservice-sdk');
 
 
