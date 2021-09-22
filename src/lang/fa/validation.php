@@ -152,7 +152,9 @@ return array(
         'uuid' => 'شناسه کسب و کار',
         'title' => 'عنوان',
         'amount' => 'مبلغ',
-        'success_callback_url' => 'لینک برگشت موفقیت آمیز',
-        'failure_callback_url' => 'لینک برگشت ناموفق',
+        'success_callback_url' => 'لینک بازگشت موفقیت آمیز',
+        'failure_callback_url' => 'لینک بازگشت ناموفق',
+        'callback_url' => 'لینک بازگشت',
+        'terminal' => 'ترمینال',
     ]
 );
