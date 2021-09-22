@@ -12,8 +12,7 @@
         "firebase/php-jwt": "^5.4",
         "fruitcake/laravel-cors": "^2.0",
         "predis/predis": "^1.1",
-        "illuminate/redis": "^8.58",
-        "imanrj/lumen-horizon": "^1.0"
+        "illuminate/redis": "^8.58"
     },
     "authors": [
         {
