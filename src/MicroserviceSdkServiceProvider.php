@@ -77,6 +77,7 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
             __DIR__.'/config/database.php' => lumen_config_path('database.php'),
             __DIR__.'/config/jwt.php' => lumen_config_path('jwt.php'),
             __DIR__.'/config/cors.php' => lumen_config_path('cors.php'),
+            __DIR__.'/config/queue.php' => lumen_config_path('queue.php'),
         ], 'microservice-sdk');
 
 
@@ -89,6 +90,9 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
         }
         if (file_exists($this->app->basePath() . '/config/cors.php')) {
             $this->mergeConfigFrom($this->app->basePath() . '/config/cors.php', 'cors');
+        }
+        if (file_exists($this->app->basePath() . '/config/queue.php')) {
+            $this->mergeConfigFrom($this->app->basePath() . '/config/queue.php', 'queue');
         }
 
         // Register Repositories
