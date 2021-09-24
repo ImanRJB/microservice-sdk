@@ -13,7 +13,6 @@ use Illuminate\Translation\TranslationServiceProvider;
 use Fruitcake\Cors\CorsServiceProvider;
 use Illuminate\Redis\RedisServiceProvider;
 use Milyoona\MicroserviceSdk\Services\ModelRepository\ModelRepositoryServiceProvider;
-use Milyoona\MicroserviceSdk\Observers\ModelObserver;
 
 class MicroserviceSdkServiceProvider extends ServiceProvider
 {
@@ -46,13 +45,13 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
         });
 
 
-        $except = ['Admin', 'Role'];
-        foreach (getAppModels() as $model) {
-            if (array_search($model, $except) === false) {
-                $model = '\\App\\Models\\' . $model;
-                $model::observe(ModelObserver::class);
-            }
-        }
+//        $except = ['Admin', 'Role'];
+//        foreach (getAppModels() as $model) {
+//            if (array_search($model, $except) === false) {
+//                $model = '\\App\\Models\\' . $model;
+//                $model::observe(ModelObserver::class);
+//            }
+//        }
     }
 
     /**
