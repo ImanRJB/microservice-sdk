@@ -13,6 +13,7 @@ use Illuminate\Translation\TranslationServiceProvider;
 use Fruitcake\Cors\CorsServiceProvider;
 use Illuminate\Redis\RedisServiceProvider;
 use Milyoona\MicroserviceSdk\Services\ModelRepository\ModelRepositoryServiceProvider;
+use Milyoona\MicroserviceSdk\Observers\ModelObserver;
 
 class MicroserviceSdkServiceProvider extends ServiceProvider
 {
