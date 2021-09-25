@@ -2,17 +2,15 @@
 
 namespace Milyoona\MicroserviceSdk\Observers;
 
-use Bschmitt\Amqp\Facades\Amqp;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redis;
+use Milyoona\MicroserviceSdk\Jobs\NotificationJob;
 
 class ModelObserver
 {
     public function created(Model $model)
     {
         try {
-            Redis::publish('notification', json_encode( ['method' => 'store', 'data' => $model->getAttributes()] ));
+            dispatch(new NotificationJob($model, 'store'));
         } catch (\Exception $exception) {
 
         }
@@ -22,7 +20,7 @@ class ModelObserver
     public function updated(Model $model)
     {
         try {
-            Redis::publish('notification', json_encode( ['method' => 'update', 'data' => $model->getAttributes()] ));
+            dispatch(new NotificationJob($model, 'update'));
         } catch (\Exception $exception) {
 
         }
@@ -32,7 +30,7 @@ class ModelObserver
     public function deleted(Model $model)
     {
         try {
-            Redis::publish('notification', json_encode( ['method' => 'delete', 'data' => $model->getAttributes()] ));
+            dispatch(new NotificationJob($model, 'delete'));
         } catch (\Exception $exception) {
 
         }
@@ -42,7 +40,7 @@ class ModelObserver
     public function restored(Model $model)
     {
         try {
-            Redis::publish('notification', json_encode( ['method' => 'restore', 'data' => $model->getAttributes()] ));
+            dispatch(new NotificationJob($model, 'restore'));
         } catch (\Exception $exception) {
 
         }
@@ -52,7 +50,7 @@ class ModelObserver
     public function forceDeleted(Model $model)
     {
         try {
-            Redis::publish('notification', json_encode( ['method' => 'forceDelete', 'data' => $model->getAttributes()] ));
+            dispatch(new NotificationJob($model, 'forceDelete'));
         } catch (\Exception $exception) {
 
         }
