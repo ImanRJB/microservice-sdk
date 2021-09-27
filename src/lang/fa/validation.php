@@ -156,5 +156,7 @@ return array(
         'failure_callback_url' => 'لینک بازگشت ناموفق',
         'callback_url' => 'لینک بازگشت',
         'terminal' => 'ترمینال',
+        'department_id' => 'دپارتمان',
+        'body' => 'متن',
     ]
 );
