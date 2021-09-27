@@ -21,12 +21,6 @@ class Message extends Model
         'attach',
     ];
 
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'deleted_at',
-    ];
-
     public function ticket()
     {
         return $this->belongsTo(Ticket::class);
