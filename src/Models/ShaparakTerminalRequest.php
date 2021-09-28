@@ -12,13 +12,8 @@ class ShaparakTerminalRequest extends Model
 
     protected $fillable = [];
 
-    public function terminal()
+    public function irankish()
     {
-        return $this->belongsTo(Terminal::class);
-    }
-
-    public function irankishs()
-    {
-        return $this->hasOne(Irankish::class);
+        return $this->belongsTo(Irankish::class);
     }
 }

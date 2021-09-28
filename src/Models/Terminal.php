@@ -10,7 +10,6 @@ use App\Models\Transaction;
 use App\Models\Withdraw;
 use App\Models\TerminalDashboard;
 use App\Models\Irankish;
-use App\Models\ShaparakTerminalRequest;
 
 class Terminal extends Model
 {
@@ -59,10 +58,5 @@ class Terminal extends Model
     public function irankish()
     {
         return $this->hasOne(Irankish::class);
-    }
-
-    public function shaparakTerminalRequests()
-    {
-        return $this->hasMany(ShaparakTerminalRequest::class);
     }
 }

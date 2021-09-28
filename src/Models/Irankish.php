@@ -17,8 +17,8 @@ class Irankish extends Model
         return $this->belongsTo(Terminal::class);
     }
 
-    public function shaparakTerminalRequest()
+    public function shaparakTerminalRequests()
     {
-        return $this->belongsTo(ShaparakTerminalRequest::class);
+        return $this->hasMany(ShaparakTerminalRequest::class);
     }
 }
