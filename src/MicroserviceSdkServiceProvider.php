@@ -7,7 +7,6 @@ use Firebase\JWT\JWT;
 use Illuminate\Support\ServiceProvider;
 //Register depends
 use Anik\Form\FormRequestServiceProvider;
-use Bschmitt\Amqp\LumenServiceProvider;
 use Flipbox\LumenGenerator\LumenGeneratorServiceProvider;
 use Illuminate\Translation\TranslationServiceProvider;
 use Fruitcake\Cors\CorsServiceProvider;
@@ -60,7 +59,6 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
     public function register()
     {
         // Register depends packages service providers
-        $this->app->register(LumenServiceProvider::class);
         $this->app->register(LumenGeneratorServiceProvider::class);
         $this->app->register(FormRequestServiceProvider::class);
         $this->app->register(CorsServiceProvider::class);
