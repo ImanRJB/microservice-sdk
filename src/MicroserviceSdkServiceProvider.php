@@ -63,6 +63,7 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
         $this->app->register(FormRequestServiceProvider::class);
         $this->app->register(CorsServiceProvider::class);
         $this->app->register(RedisServiceProvider::class);
+        $app->register(SwooleTW\Http\LumenServiceProvider::class);
 
         //Services
         $this->app->alias(\Milyoona\MicroserviceSdk\Services\ModelRepository\ModelRepository::class, 'ModelRepository');
