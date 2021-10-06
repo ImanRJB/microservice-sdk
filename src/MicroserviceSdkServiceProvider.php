@@ -86,6 +86,9 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
         if (file_exists($this->app->basePath() . '/config/cors.php')) {
             $this->mergeConfigFrom($this->app->basePath() . '/config/cors.php', 'cors');
         }
+        if (file_exists(__DIR__ . '/config/swoole_http.php')) {
+            $this->mergeConfigFrom(__DIR__ . '/config/swoole_http.php', 'swoole_http');
+        }
 
         // Register Repositories
         foreach (getRepositories() as $repository) {
