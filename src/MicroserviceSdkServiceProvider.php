@@ -59,11 +59,13 @@ class MicroserviceSdkServiceProvider extends ServiceProvider
     public function register()
     {
         // Register depends packages service providers
-        $this->app->register(LumenGeneratorServiceProvider::class);
-        $this->app->register(FormRequestServiceProvider::class);
-        $this->app->register(CorsServiceProvider::class);
-        $this->app->register(RedisServiceProvider::class);
-        $this->app->register(\SwooleTW\Http\LumenServiceProvider::class);
+        if (!$this->app instanceof \Illuminate\Foundation\Application) {
+            $this->app->register(LumenGeneratorServiceProvider::class);
+            $this->app->register(FormRequestServiceProvider::class);
+            $this->app->register(CorsServiceProvider::class);
+            $this->app->register(RedisServiceProvider::class);
+            $this->app->register(\SwooleTW\Http\LumenServiceProvider::class);
+        }
 
         //Services
         $this->app->alias(\Milyoona\MicroserviceSdk\Services\ModelRepository\ModelRepository::class, 'ModelRepository');
