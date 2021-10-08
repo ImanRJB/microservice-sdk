@@ -15,6 +15,7 @@ class Transaction extends Model
         'business_id',
         'product_id',
         'token',
+        'psp_token',
         'psp_execution_time',
         'created_at',
         'updated_at',
