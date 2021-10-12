@@ -21,7 +21,28 @@ class NotificationJob extends Job
 
     public function handle()
     {
-        //
+        $model = $this->model;
+        $changes = $this->changes;
+        $model_name = class_basename($model);
+        if (file_exists(app_path() . '/Services/' . $model_name . 'NotificationCenter/' . $model_name . 'NotificationCenter.php')) {
+            $notification_center = 'App\\Services\\' . $model_name . 'NotificationCenter\\' . $model_name . 'NotificationCenter';
+            switch ($this->method) {
+                case 'store':
+                    $notification_center::createdNotification($model, $changes);
+                    break;
+                case 'update':
+                    $notification_center::updatedNotification($model, $changes);
+                    break;
+                case 'delete':
+                    $notification_center::deletedNotification($model, $model->getChanges());
+                    break;
+                case 'restore':
+                    $notification_center::restoredNotification($model, $model->getChanges());
+                    break;
+                case 'forceDelete':
+                    $notification_center::forceDeletedNotification($model, $model->getChanges());
+                    break;
+            }
+        }
     }
-
 }
