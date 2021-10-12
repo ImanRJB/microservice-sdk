@@ -10,7 +10,7 @@ class ModelObserver
     public function created(Model $model)
     {
         try {
-            dispatch(new NotificationJob($model, 'store'));
+            dispatch(new NotificationJob($model, $model->getChanges(), 'store'));
         } catch (\Exception $exception) {
 
         }
@@ -20,7 +20,7 @@ class ModelObserver
     public function updated(Model $model)
     {
         try {
-            dispatch(new NotificationJob($model, 'update'));
+            dispatch(new NotificationJob($model, $model->getChanges(), 'update'));
         } catch (\Exception $exception) {
 
         }
@@ -30,7 +30,7 @@ class ModelObserver
     public function deleted(Model $model)
     {
         try {
-            dispatch(new NotificationJob($model, 'delete'));
+            dispatch(new NotificationJob($model, $model->getChanges(), 'delete'));
         } catch (\Exception $exception) {
 
         }
@@ -40,7 +40,7 @@ class ModelObserver
     public function restored(Model $model)
     {
         try {
-            dispatch(new NotificationJob($model, 'restore'));
+            dispatch(new NotificationJob($model, $model->getChanges(), 'restore'));
         } catch (\Exception $exception) {
 
         }
@@ -50,7 +50,7 @@ class ModelObserver
     public function forceDeleted(Model $model)
     {
         try {
-            dispatch(new NotificationJob($model, 'forceDelete'));
+            dispatch(new NotificationJob($model, $model->getChanges(), 'forceDelete'));
         } catch (\Exception $exception) {
 
         }
