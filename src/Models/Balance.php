@@ -3,7 +3,7 @@
 namespace Milyoona\MicroserviceSdk\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Business;
+use App\Models\Terminal;
 
 class Balance extends Model
 {
@@ -11,9 +11,9 @@ class Balance extends Model
 
     protected $fillable = [];
 
-    public function business()
+    public function terminal()
     {
-        return $this->belongsTo(Business::class);
+        return $this->belongsTo(Terminal::class);
     }
 }
 

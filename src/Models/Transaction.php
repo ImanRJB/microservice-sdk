@@ -17,6 +17,7 @@ class Transaction extends Model
         'token',
         'psp_token',
         'psp_execution_time',
+        'deposited_at',
         'created_at',
         'updated_at',
         'deleted_at',

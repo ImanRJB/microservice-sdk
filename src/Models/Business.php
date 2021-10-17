@@ -11,7 +11,6 @@ use App\Models\Terminal;
 use App\Models\Iban;
 use App\Models\Product;
 use App\Models\Discount;
-use App\Models\Balance;
 use App\Models\Sharing;
 use App\Models\DashboardChart;
 use App\Models\ShaparakTaxRequest;
@@ -78,11 +77,6 @@ class Business extends Model
     public function discounts()
     {
         return $this->hasMany(Discount::class);
-    }
-
-    public function balances()
-    {
-        return $this->hasMany(Balance::class);
     }
 
     public function sharings()

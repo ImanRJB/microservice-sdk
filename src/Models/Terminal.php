@@ -10,6 +10,7 @@ use App\Models\Transaction;
 use App\Models\Withdraw;
 use App\Models\TerminalDashboard;
 use App\Models\Irankish;
+use App\Models\Balance;
 
 class Terminal extends Model
 {
@@ -58,5 +59,10 @@ class Terminal extends Model
     public function irankish()
     {
         return $this->hasOne(Irankish::class);
+    }
+
+    public function balances()
+    {
+        return $this->hasMany(Balance::class);
     }
 }
