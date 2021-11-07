@@ -83,11 +83,6 @@ class Business extends Model
         return $this->hasMany(Discount::class);
     }
 
-    public function sharings()
-    {
-        return $this->hasMany(Sharing::class);
-    }
-
     public function shaparakTaxRequests()
     {
         return $this->hasMany(ShaparakTaxRequest::class);
