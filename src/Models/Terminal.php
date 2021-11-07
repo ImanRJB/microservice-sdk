@@ -11,6 +11,7 @@ use App\Models\Withdraw;
 use App\Models\TerminalDashboard;
 use App\Models\Irankish;
 use App\Models\Balance;
+use App\Models\Sharing;
 
 class Terminal extends Model
 {
@@ -64,5 +65,10 @@ class Terminal extends Model
     public function balances()
     {
         return $this->hasMany(Balance::class);
+    }
+
+    public function sharings()
+    {
+        return $this->hasMany(Sharing::class);
     }
 }
