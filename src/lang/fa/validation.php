@@ -158,5 +158,9 @@ return array(
         'terminal' => 'ترمینال',
         'department_id' => 'دپارتمان',
         'body' => 'متن',
+        'customer_name' => 'نام و نام خانوادگی',
+        'customer_email' => 'پست الکترونیک',
+        'customer_mobile' => 'شماره همراه',
+        'customer_note' => 'توضیحات',
     ]
 );
